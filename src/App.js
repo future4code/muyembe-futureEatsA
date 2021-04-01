@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
+import Router from './Routes/router'
+import {Container} from './AppStyles'
 
 function App() {
   return (
-    <div className="App">
-      <h1>HELLO WORLD</h1>
-      <h2>HELLO WORLD</h2>
+  <Container>
+    <div>
+    <Router/>
     </div>
+  </Container>
   );
 }
 
