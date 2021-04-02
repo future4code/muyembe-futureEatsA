@@ -5,8 +5,7 @@ import {Container} from './AppStyles'
 
 function App() {
   return (
-  <Container>  
-        <h1>LabeFoods</h1>  
+  <Container>        
         <Router/>        
   </Container>
   );

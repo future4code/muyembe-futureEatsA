@@ -5,4 +5,5 @@ export const BottomBar = styled.div`
     position: fixed;
     bottom: 0;
     width: 100vw;
+    border:1px solid black;
 `

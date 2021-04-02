@@ -7,11 +7,10 @@ import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import {BottomBar} from './styles'
 
-
 const useStyles = makeStyles({
-  root: {
-    //width: 1200,
-  },
+  // root: {
+  //  // width: 500,
+  // },
 });
 
 export default function SimpleBottomNavigation() {
