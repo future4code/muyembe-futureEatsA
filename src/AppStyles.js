@@ -8,5 +8,4 @@ export const Container = styled.div`
     align-items: flex-end;
     height: 100vh;
     width: 100vw;
-    background-color: red;
 `
