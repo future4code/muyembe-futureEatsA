@@ -5,10 +5,9 @@ import {Container} from './AppStyles'
 
 function App() {
   return (
-  <Container>
-    <div>
-    <Router/>
-    </div>
+  <Container>  
+        <h1>LabeFoods</h1>  
+        <Router/>        
   </Container>
   );
 }
