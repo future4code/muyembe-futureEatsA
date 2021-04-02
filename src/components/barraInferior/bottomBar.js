@@ -19,18 +19,18 @@ export default function SimpleBottomNavigation() {
 
   return (
       <BottomBar>
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction label="Home" icon={<HomeRoundedIcon/>} />
-      <BottomNavigationAction label="Carrinho" icon={<ShoppingCartRoundedIcon />} />
-      <BottomNavigationAction label="Perfil" icon={<PersonRoundedIcon />} />
-    </BottomNavigation>
+        <BottomNavigation
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+          className={classes.root}
+        >
+            <BottomNavigationAction label="Home" icon={<HomeRoundedIcon/>} />
+            <BottomNavigationAction label="Carrinho" icon={<ShoppingCartRoundedIcon />} />
+            <BottomNavigationAction label="Perfil" icon={<PersonRoundedIcon />} />
+        </BottomNavigation>
     </BottomBar>
   );
 }
