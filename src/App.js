@@ -5,10 +5,8 @@ import {Container} from './AppStyles'
 
 function App() {
   return (
-  <Container>
-    <div>
-    <Router/>
-    </div>
+  <Container>        
+        <Router/>        
   </Container>
   );
 }
