@@ -3,6 +3,7 @@ import React from "react";
 import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
 import SearchPage from "../pages/SearchPage/SearchPage";
 import Register from "../pages/Register/Register"
+import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 
 const Router = () => {
 
@@ -12,10 +13,11 @@ const Router = () => {
         <Route exact path="/">
         </Route>
         <Route exact path="/login">          
-          {/* <App /> */}
+          <PaginaLogin/>
         </Route>
         <Route exact path="/cadastro">
           <Register/>
+          <SimpleBottomNavigation /> 
         </Route>
         <Route exact path="/home">
           {/* <App /> */}
@@ -24,10 +26,10 @@ const Router = () => {
           {/* <App /> */}
         </Route>
         <Route exact path="/busca">
-            <SearchPage/>
+          <SearchPage/>
+          <SimpleBottomNavigation /> 
         </Route>
       </Switch>
-      <SimpleBottomNavigation /> 
     </BrowserRouter>
   );
 };
