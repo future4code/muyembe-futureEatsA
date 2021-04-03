@@ -4,6 +4,7 @@ import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
 import SearchPage from "../pages/SearchPage/SearchPage";
 import Register from "../pages/Register/Register"
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
+import PerfilPage from '../pages/PerfilPage/PerfilPage'
 
 const Router = () => {
 
@@ -27,6 +28,10 @@ const Router = () => {
         </Route>
         <Route exact path="/busca">
           <SearchPage/>
+          <SimpleBottomNavigation /> 
+        </Route>
+        <Route exact path="/perfil">
+          <PerfilPage/>
           <SimpleBottomNavigation /> 
         </Route>
       </Switch>
