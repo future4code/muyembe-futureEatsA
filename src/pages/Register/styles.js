@@ -10,6 +10,13 @@ export const Container = styled.div`
   justify-content: center;
 `
 
+export const ImageLogo = styled.img`
+  width: 6rem;
+  height: 4rem;
+  margin:1.5rem 8rem 1rem;
+ 
+`   
+
 export const Title = styled.p`  
 
   font-size: 1rem;

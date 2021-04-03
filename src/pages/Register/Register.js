@@ -8,9 +8,11 @@ import {
     FormControl,
     TextField,
     Button
+    
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
-import { Title, ContainerForm, Container } from "./styles";
+import Logo from '../../assets/brandLogo.png'
+import { Title, ContainerForm, Container,ImageLogo } from "./styles";
 
 function Register() {
 
@@ -53,7 +55,7 @@ function Register() {
 
     return (
         <Container>
-
+             <ImageLogo src={Logo} alt={'labe-food logo'}/>
             <ContainerForm onSubmit={validation}>
 
                 <Title>Cadastrar</Title>
