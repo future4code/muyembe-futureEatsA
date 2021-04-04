@@ -8,9 +8,9 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import {BottomBar} from './styles'
 
 const useStyles = makeStyles({
-  // root: {
-  //  // width: 500,
-  // },
+  root: {
+    width: '100vw',
+  },
 });
 
 export default function SimpleBottomNavigation() {
