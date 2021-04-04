@@ -4,6 +4,7 @@ import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
 import SearchPage from "../pages/SearchPage/SearchPage";
 import Register from "../pages/Register/Register"
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
+import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 
 const Router = () => {
 
@@ -27,8 +28,14 @@ const Router = () => {
         </Route>
         <Route exact path="/busca">
           <SearchPage/>
-          <SimpleBottomNavigation /> 
+          <SimpleBottomNavigation />
         </Route>
+
+        <Route exact path="/restaurante">
+          <RestaurantPage />
+          <SimpleBottomNavigation />
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );
