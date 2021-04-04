@@ -5,8 +5,8 @@ import SearchPage from "../pages/SearchPage/SearchPage";
 import Address from "../pages/Register/Address"
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
-
 import PerfilPage from '../pages/PerfilPage/PerfilPage'
+import Cart from "../pages/CartPage/Cart";
 
 const Router = () => {
 
@@ -25,7 +25,8 @@ const Router = () => {
           {/* <App /> */}
         </Route>
         <Route exact path="/carrinho">
-          {/* <App /> */}
+         <Cart/>
+         <SimpleBottomNavigation />
         </Route>
         <Route exact path="/busca">
           <SearchPage/>
