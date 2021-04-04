@@ -2,9 +2,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React from "react";
 import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
 import SearchPage from "../pages/SearchPage/SearchPage";
-import Register from "../pages/Register/Register"
+import Address from "../pages/Register/Address"
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
+
+import PerfilPage from '../pages/PerfilPage/PerfilPage'
 
 const Router = () => {
 
@@ -17,8 +19,7 @@ const Router = () => {
           <PaginaLogin/>
         </Route>
         <Route exact path="/cadastro">
-          <Register/>
-          <SimpleBottomNavigation /> 
+          <Address/>
         </Route>
         <Route exact path="/home">
           {/* <App /> */}
@@ -36,6 +37,10 @@ const Router = () => {
           <SimpleBottomNavigation />
         </Route>
 
+        <Route exact path="/perfil">
+          <PerfilPage/>
+          <SimpleBottomNavigation /> 
+        </Route>
       </Switch>
     </BrowserRouter>
   );
