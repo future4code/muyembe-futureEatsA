@@ -4,8 +4,7 @@ import { TextField, Button } from '@material-ui/core'
 import { Title, ContainerForm, Container } from './styles'
 
 const EditAddressPage = () => {
-    // Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
-    const [changePage, setChangePage] = useState(false)
+  
 
     // hook de formulário
     const { inputText, onChange } = useInput({
@@ -17,15 +16,12 @@ const EditAddressPage = () => {
         state: '',
     })
 
-    const validation = (event) => {
-        event.preventDefault()
-        setChangePage(true) // mudança de estado para mudança de página
-    }
+   
     return (
         <>
       
         <Container>
-          <ContainerForm onSubmit={validation}>
+          <ContainerForm >
             <Title>Endereço</Title>
             <TextField
               variant="outlined"
@@ -98,7 +94,7 @@ const EditAddressPage = () => {
               style={{ margin: '0.5rem 0' }}
               required
             />
-            <Button type={'submit'} variant="contained" color="primary">
+            <Button type={'submit'} variant="contained" color="secondary">
               Salvar
             </Button>
           </ContainerForm>

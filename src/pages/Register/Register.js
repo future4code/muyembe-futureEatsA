@@ -150,7 +150,7 @@ function Register() {
           />
         </FormControl>
 
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="secondary">
           Criar
         </Button>
       </ContainerForm>

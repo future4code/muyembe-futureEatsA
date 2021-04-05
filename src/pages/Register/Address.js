@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
 import Register from './Register'
 import { TextField, Button } from '@material-ui/core'
-
+// import theme from '../../theme/theme'
 import { Title, ContainerForm, Container } from './styles'
 
 function Address() {
@@ -103,7 +103,7 @@ function Address() {
               required
             />
 
-            <Button type={'submit'} variant="contained" color="primary">
+            <Button type={'submit'} variant="contained" color="secondary">
               Salvar
             </Button>
           </ContainerForm>
