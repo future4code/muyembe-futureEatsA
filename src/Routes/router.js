@@ -7,6 +7,7 @@ import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import PerfilPage from '../pages/PerfilPage/PerfilPage'
 import Cart from "../pages/CartPage/Cart";
+import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
 
 const Router = () => {
 
@@ -41,7 +42,11 @@ const Router = () => {
         <Route exact path="/perfil">
           <PerfilPage/>
           <SimpleBottomNavigation /> 
-        </Route>        
+        </Route> 
+        <Route exact path="/perfil/editar/endereco">
+          <EditAddressPage/>
+          <SimpleBottomNavigation /> 
+        </Route>           
       </Switch>
     </BrowserRouter>
   );
