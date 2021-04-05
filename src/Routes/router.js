@@ -8,6 +8,7 @@ import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import PerfilPage from '../pages/PerfilPage/PerfilPage'
 import Cart from "../pages/CartPage/Cart";
 import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
+import EditUserPage from '../pages/EditUserPage/EditUserPage'
 
 const Router = () => {
 
@@ -44,9 +45,11 @@ const Router = () => {
           <SimpleBottomNavigation /> 
         </Route> 
         <Route exact path="/perfil/editar/endereco">
-          <EditAddressPage/>
-          <SimpleBottomNavigation /> 
-        </Route>           
+          <EditAddressPage/>         
+        </Route>    
+        <Route exact path="/perfil/editar/usuario">
+          <EditUserPage/>         
+        </Route>                  
       </Switch>
     </BrowserRouter>
   );
