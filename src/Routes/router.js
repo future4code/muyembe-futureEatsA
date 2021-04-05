@@ -41,7 +41,7 @@ const Router = () => {
         <Route exact path="/perfil">
           <PerfilPage/>
           <SimpleBottomNavigation /> 
-        </Route>
+        </Route>        
       </Switch>
     </BrowserRouter>
   );
