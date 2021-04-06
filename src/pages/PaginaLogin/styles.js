@@ -8,10 +8,6 @@ export const DivPrincipal = styled.div`
     margin-top: 10vh;
     height: 68vh;
     width: 100vw;
-
-.a{
-    font-weight: bold;
-}
 `
 
 export const ImgLogo = styled.img`

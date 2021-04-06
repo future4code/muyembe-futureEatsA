@@ -17,7 +17,7 @@ export default function InputLogin(props) {
 
   return (
     
-    <form className={classes.root}>
+    <form onSubmit={props.onSubmitLogin} className={classes.root}>
       <DivInput>
             <p>Entrar</p>
         <TextField
@@ -29,9 +29,11 @@ export default function InputLogin(props) {
           InputLabelProps={{
             shrink: true
           }}
+            color="secondary"
             value={props.inputEmail}
             onChange={props.onChangeEmail}
             id="required"
+            name="email"
             label="E-mail"
             type="email"
             placeholder="email@email.com"
@@ -47,9 +49,11 @@ export default function InputLogin(props) {
           InputLabelProps={{
             shrink: true,
           }}
-            value={props.inputSenha}
-            onChange={props.onChangeSenha}
+            color="secondary"
+            value={props.inputPassword}
+            onChange={props.onChangePassword}
             id="required"
+            name="password"
             label="Senha"
             type="password"
             placeholder="Minimo 6 caracteres"
@@ -62,11 +66,11 @@ export default function InputLogin(props) {
             height: "42px",
             padding: "12px 16px",
             borderRadius: "2px",
-            backgroundColor: "#5cb646",
             color: "black"
           }}
+          type="submit"
           variant="contained"
-          color="primary"
+          color="secondary"
           className={classes.margin}
         >
           Entrar

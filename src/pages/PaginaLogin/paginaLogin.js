@@ -2,14 +2,33 @@ import React, { useContext } from 'react'
 import InputLogin from './inputLogin/inputLogin'
 import { DivPrincipal, ImgLogo } from './styles'
 import brandLogo from '../../assets/brandLogo.png'
+import { useInput } from '../../hooks/useInput'
 import GlobalStateContext from '../../globalState/globalStateContext'
+import { register } from '../../Routes/coordinator'
+import { useHistory } from 'react-router'
 
 const PaginaLogin = () => {
 
-    const { hooks } = useContext(GlobalStateContext)
+    const history = useHistory()
 
-    const [email, onChangeEmail] = hooks.useInput("")
-    const [senha, onChangeSenha] = hooks.useInput("")
+    const { requests } = useContext(GlobalStateContext)
+
+    const { inputText, onChange } = useInput({
+        email: '',
+        password: ''
+    })
+
+    const onSubmitLogin = (event) => {
+        event.preventDefault()
+
+        const body = {
+            "email": inputText.email,
+            "password": inputText.password
+        }
+
+        requests.login(body)
+
+    }
 
     return (
         <DivPrincipal>
@@ -18,12 +37,13 @@ const PaginaLogin = () => {
                 alt="FutureEats"
             />
             <InputLogin
-                inputEmail={email}
-                inputSenha={senha}
-                onChangeEmail={onChangeEmail}
-                onChangeSenha={onChangeSenha}
+                onSubmitLogin={onSubmitLogin}
+                inputEmail={inputText.email}
+                inputPassword={inputText.password}
+                onChangeEmail={onChange}
+                onChangePassword={onChange}
             />
-            <a>Não possui cadastro? Cadastre-se</a>
+            <p onClick={() => register(history)}>Não possui cadastro? Cadastre-se</p>
         </DivPrincipal>
     )
 }
