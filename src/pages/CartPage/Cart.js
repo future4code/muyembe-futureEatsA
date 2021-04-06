@@ -5,7 +5,7 @@ import bluetooth from '../../assets/bluetooth.png'
 import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
-import {Icons, Total, Address, Main, Texto, MeuCarrinho, AddressArea, AddressPlaceHolder} from './styled'
+import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoice, SubTotal, Total, PaymentMethod, Address, Main, Texto, MeuCarrinho, AddressArea, AddressPlaceHolder, TextTotal} from './styled'
 
 
 const Cart = () => {
@@ -32,22 +32,34 @@ const Cart = () => {
          <Address>Rua Alessandra Vieira, 42</Address>
 
       </AddressArea>
-      <p>Carrinho vazio</p>
+      <PaymentMethod>Carrinho vazio</PaymentMethod>
       <Main>
+      
       <Total>
-        <span>SUBTOTAL</span>
-        <span>Frete R$0,00</span>
-        <span>R$0,00</span>
+        <TextTotal>Frete R$0,00</TextTotal>
+        <SubTotal>
+        <TextTotal>SUBTOTAL</TextTotal>
+        <TextTotal>R$0,00</TextTotal>
+        </SubTotal>
       </Total>
-      <p>Forma de pagamento</p>
+      
+      <PaymentMethod>Forma de pagamento</PaymentMethod>
       <hr />
-      <div>
-        <input type="radio" />
-        <input type="radio" />
-      </div>
-      </Main>
 
-      <Button>Confirmar</Button>
+      <PaymentChoice>
+      <ChoicesContainer>
+      <Choices htmlFor="cartao">Cartão de crédito</Choices>
+      <input type="radio" name="cartao" id="cartao"/><br/>
+      </ChoicesContainer>
+      <ChoicesContainer>
+      <Choices htmlFor="dinheiro">Dinheiro</Choices>
+      <input type="radio" name="dinheiro" id="dinheiro" /><br/>
+      </ChoicesContainer>
+      </PaymentChoice>
+      </Main>
+      <Container>
+      <ConfirmButton color={'secondary'} variant={'contained'} >Confirmar</ConfirmButton>
+      </Container>
     </div>
   );
 };
