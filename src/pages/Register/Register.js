@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
+import axios from 'axios'
+import Adress from './Address'
 import {
   InputLabel,
   IconButton,
@@ -23,6 +25,9 @@ function Register() {
     confirmPassword: '',
   })
 
+  // Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
+  const [changePage, setChangePage] = useState(false)
+
   //Estado das senhas
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -34,23 +39,39 @@ function Register() {
   const clickShowConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword)
   }
-  // console.log(inputText.password) um teste para conferir se o hook estava funcionando
 
   // Validação das senhas
   const validation = (event) => {
     const password = inputText.password
     const confirmationPassword = inputText.confirmPassword
     event.preventDefault()
-    if (password === confirmationPassword) {
-      alert('Cadastro feito com sucesso')
-      clearInput()
-    } else {
+
+    if (inputText !== '' &&
+     inputText.email !== '' &&
+     inputText.cpf !== '' &&
+     password === confirmationPassword &&
+     password.length >= 6 ) {
+
+      axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/signup", inputText)
+      .then((answer) => {
+          localStorage.setItem('token', answer.data.token)
+          alert('Cadastro feito com sucesso')
+          setChangePage(true) // mudança de estado para mudança de página 
+      })
+      .catch(() => {
+          alert('Usuário já cadastrado')
+      })
+     
+    }else {
       alert('Por favor, confira sua senha')
       clearInput()
     }
   }
 
+  
   return (
+    <>
+    {changePage === false?(
     <Container>
       <ImageLogo src={Logo} alt={'labe-food logo'} />
 
@@ -150,11 +171,16 @@ function Register() {
           />
         </FormControl>
 
-        <Button variant="contained" color="secondary">
+        <Button type="submit" variant="contained" color="secondary">
           Criar
         </Button>
       </ContainerForm>
     </Container>
+    ):(
+      <Adress/>
+    )
+}
+    </>
   )
 }
 

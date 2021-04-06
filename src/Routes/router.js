@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React from "react";
 import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
 import SearchPage from "../pages/SearchPage/SearchPage";
-import Address from "../pages/Register/Address"
+import Register from "../pages/Register/Register"
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import PerfilPage from '../pages/PerfilPage/PerfilPage'
@@ -21,7 +21,7 @@ const Router = () => {
           <PaginaLogin/>
         </Route>
         <Route exact path="/cadastro">
-          <Address/>
+          <Register/>
         </Route>
         <Route exact path="/home">
           {/* <App /> */}
