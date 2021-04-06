@@ -1,25 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GlobalStateContext from './globalStateContext'
+import axios from 'axios'
 
 const GlobalState = (props) => {
 
-   const useInput = (initialValue) => {
-    const [valorInput, setValorInput] = useState(initialValue)
-
-    const onChangeValorInput = (event) => {
-        setValorInput(event.target.value)
+    const login = (body) => {
+        axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
+            .then((res) => {
+                window.localStorage.setItem("Token", res.data.token)
+            }).catch((err) => {
+                console.log(err)
+            })
     }
 
-    return [valorInput, onChangeValorInput]
+    const requests = { login }
 
-   }
-
-    const hooks = {useInput}
-
-    const dados = { hooks }
+    const data = { requests }
     
     return(
-        <GlobalStateContext.Provider value={dados}>
+        <GlobalStateContext.Provider value={data}>
             {props.children}
         </GlobalStateContext.Provider>
     )
