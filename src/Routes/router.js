@@ -31,8 +31,7 @@ const Router = () => {
          <SimpleBottomNavigation />
         </Route>
         <Route exact path="/busca">
-          <SearchPage/>
-          <SimpleBottomNavigation />
+          <SearchPage/>          
         </Route>
 
         <Route exact path="/restaurante">

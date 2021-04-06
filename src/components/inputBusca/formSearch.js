@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiTextField-root': {           
             width: '90vw',
             marginLeft:'20px',
-            marginTop: '10px',
+            marginTop: '20px',
             marginBottom:'10px'           
         },
     },

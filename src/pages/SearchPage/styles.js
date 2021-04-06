@@ -5,13 +5,14 @@ export const ContainerSearchPage = styled.div`
             text-align:center;
         }
 `
-export const SearchPageHeader = styled.header`
+export const SearchPageHeader = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         height: 5vh;
         margin: 5px 5px 0 5px;
         padding: 0 5px 0 5px;
+        flex-wrap:wrap;
 `
 export const Icons = styled.img`
         width: 16.5px;
@@ -21,10 +22,11 @@ export const Icons = styled.img`
 export const Texto = styled.span`
         margin: 0 5px 0 5px;
 `
-export const SubHeaderSearch = styled.div`
-        margin: 10px 18px;
-        display:grid;
-        grid-template-columns:auto 1fr 1fr;
-        justify-items:flex-end; 
-        column-gap:120px;       
+export const SubHeaderSearch = styled.div`       
+        display:flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin: 10px 38px 10px 16px;
+        flex-wrap:wrap;        
+       
 `

@@ -5,7 +5,8 @@ import bluetooth from '../../assets/bluetooth.png'
 import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import back from '../../assets/back.png'
+import Divider from '@material-ui/core/Divider';
 
 const SearchPage = () => {
 
@@ -25,9 +26,11 @@ const SearchPage = () => {
                 </div>
             </SearchPageHeader>
             <SubHeaderSearch>
-                <ArrowBackIosIcon/>
+                <Icons src={back}/>
                 <p>Busca</p>
+                <div></div>             
             </SubHeaderSearch>
+            <Divider/>
             <FormPropsTextFields />
             <p>Busque por nome de restaurante</p>
         </ContainerSearchPage>
