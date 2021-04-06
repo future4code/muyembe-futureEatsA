@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
 import { TextField, Button } from '@material-ui/core'
 import { Title, ContainerForm, Container } from './styles'
+import axios from "axios"
 
 function Address() {
 
@@ -16,13 +17,29 @@ function Address() {
     state: '',
   })
 
+  const headers = {
+    headers: {
+        auth: localStorage.getItem('token')
+    }
+}
+
  const validation =()=>{
   if( inputText.street 
    && inputText.number 
    && inputText.neighbourhood
    && inputText.city
    && inputText.state !== ' '){
-     alert('endereço cadastro')
+  
+axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address", inputText, headers)
+          .then((answer) => {
+                  localStorage.setItem('token', answer.data.token)
+                  alert('endereço cadastrado')
+
+          })
+          .catch((error) => {
+              alert(error.response)
+          })
+  
    }
  }
 

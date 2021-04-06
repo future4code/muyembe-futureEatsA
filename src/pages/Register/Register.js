@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
 import axios from 'axios'
 import Adress from './Address'
+import {login } from '../../Routes/coordinator'
+import {useHistory} from 'react-router'
 import {
   InputLabel,
   IconButton,
@@ -16,6 +18,8 @@ import Logo from '../../assets/brandLogo.png'
 import { Title, ContainerForm, Container, ImageLogo } from './styles'
 
 function Register() {
+  const history = useHistory()
+
   // hook de formulário
   const { inputText, onChange, clearInput } = useInput({
     name: '',
@@ -27,12 +31,11 @@ function Register() {
 
   // Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
   const [changePage, setChangePage] = useState(false)
-
-  //Estado das senhas
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [addressMessage,setAddressMessage] = useState('')
 
   //visibilidade das senhas
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const clickShowPassword = () => {
     setShowPassword(!showPassword)
   }
@@ -59,7 +62,9 @@ function Register() {
           setChangePage(true) // mudança de estado para mudança de página 
       })
       .catch(() => {
-          alert('Usuário já cadastrado')
+          alert('Usuário já consta como cadastrado')
+          setAddressMessage(<p>Tente login <strong onClick={() => login(history)}>aqui</strong></p>)
+          clearInput()
       })
      
     }else {
@@ -175,6 +180,7 @@ function Register() {
           Criar
         </Button>
       </ContainerForm>
+      {addressMessage}
     </Container>
     ):(
       <Adress/>
