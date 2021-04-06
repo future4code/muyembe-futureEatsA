@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
-import Register from './Register'
 import { TextField, Button } from '@material-ui/core'
-// import theme from '../../theme/theme'
 import { Title, ContainerForm, Container } from './styles'
 
 function Address() {
-// Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
-  const [changePage, setChangePage] = useState(false)
+
 
   // hook de formulário
   const { inputText, onChange } = useInput({
@@ -19,14 +16,18 @@ function Address() {
     state: '',
   })
 
-  const validation = (event) => {
-    event.preventDefault()
-    setChangePage(true) // mudança de estado para mudança de página
-  }
+ const validation =()=>{
+  if( inputText.street 
+   && inputText.number 
+   && inputText.neighbourhood
+   && inputText.city
+   && inputText.state !== ' '){
+     alert('endereço cadastro')
+   }
+ }
 
   return (
     <>
-      {changePage === false ? (
         <Container>
           <ContainerForm onSubmit={validation}>
             <Title>Endereço</Title>
@@ -108,11 +109,9 @@ function Address() {
             </Button>
           </ContainerForm>
         </Container>
-      ) : (
-        <Register />
-      )}
+      
     </>
   )
-}
+  }
 
 export default Address
