@@ -1,26 +1,10 @@
 import React from 'react'
 import { useInput } from '../../hooks/useInput'
 import { TextField, Button } from '@material-ui/core'
-import {
-  ContainerForm,
-  Container,
-  ContainerEditAddressPage,
-  SubHeaderEditAddress,
-  EditAddressPageHeader,
-  Icons,
-  Texto
-
-} from './styles'
-import bluetooth from '../../assets/bluetooth.png'
-import fullBattery from '../../assets/full-battery.png'
-import signal from '../../assets/signal.png'
-import wifi from '../../assets/wifi.png'
-import back from '../../assets/back.png'
-import Divider from '@material-ui/core/Divider';
+import HeaderEditAddressPage from '../../components/HeaderEditAddressPage/HeaderEditAddressPage'
+import { ContainerForm, Container } from './styles'
 
 const EditAddressPage = () => {
-
-
   // hook de formulário
   const { inputText, onChange } = useInput({
     street: '',
@@ -31,31 +15,10 @@ const EditAddressPage = () => {
     state: '',
   })
 
-
   return (
     <>
       <Container>
-        <ContainerEditAddressPage>
-          <EditAddressPageHeader>
-            <div>
-              <Icons src={signal} />
-              <Texto>Sketch</Texto>
-              <Icons src={wifi} />
-            </div>
-            <Texto>9:41PM</Texto>
-            <div>
-              <Icons src={bluetooth} />
-              <Texto>100%</Texto>
-              <Icons src={fullBattery} />
-            </div>
-          </EditAddressPageHeader>
-          <SubHeaderEditAddress>
-            <Icons src={back} />
-            <p>Editar</p>
-            <div></div>
-          </SubHeaderEditAddress>
-          <Divider />
-        </ContainerEditAddressPage>
+        <HeaderEditAddressPage />
         <ContainerForm >
           <TextField
             variant="outlined"
@@ -130,7 +93,7 @@ const EditAddressPage = () => {
           />
           <Button type={'submit'} variant="contained" color="secondary">
             Salvar
-            </Button>
+          </Button>
         </ContainerForm>
       </Container>
       )

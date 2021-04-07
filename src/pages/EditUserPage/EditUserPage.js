@@ -1,21 +1,8 @@
 import React from 'react'
 import { useInput } from '../../hooks/useInput'
 import { TextField, Button } from '@material-ui/core'
-import {
-  ContainerForm,
-  Container,
-  EditUserPageHeader,
-  SubHeaderEditUser,
-  Icons,
-  Texto,
-  ContainerEditUserPage
-} from './styles'
-import bluetooth from '../../assets/bluetooth.png'
-import fullBattery from '../../assets/full-battery.png'
-import signal from '../../assets/signal.png'
-import wifi from '../../assets/wifi.png'
-import back from '../../assets/back.png'
-import Divider from '@material-ui/core/Divider';
+import {ContainerForm,Container} from './styles'
+import HeaderEditUserPage from '../../components/HeaderEditUserPage/HeaderEditUserPage'
 
 const EditUserPage = () => {
   // hook de formulário
@@ -27,27 +14,7 @@ const EditUserPage = () => {
 
   return (
     <Container>
-      <ContainerEditUserPage>
-        <EditUserPageHeader>
-          <div>
-            <Icons src={signal} />
-            <Texto>Sketch</Texto>
-            <Icons src={wifi} />
-          </div>
-          <Texto>9:41PM</Texto>
-          <div>
-            <Icons src={bluetooth} />
-            <Texto>100%</Texto>
-            <Icons src={fullBattery} />
-          </div>
-        </EditUserPageHeader>
-        <SubHeaderEditUser>
-          <Icons src={back} />
-          <p>Editar</p>
-          <div></div>
-        </SubHeaderEditUser>
-        <Divider />
-      </ContainerEditUserPage>
+      <HeaderEditUserPage/>      
       <ContainerForm >
         <TextField
           variant="outlined"
