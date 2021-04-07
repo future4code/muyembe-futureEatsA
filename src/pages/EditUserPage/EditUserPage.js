@@ -1,20 +1,21 @@
 import React from 'react'
 import { useInput } from '../../hooks/useInput'
-import {TextField,Button} from '@material-ui/core'
-import { Title, ContainerForm, Container } from './styles'
+import { TextField, Button } from '@material-ui/core'
+import {ContainerForm,Container} from './styles'
+import HeaderEditUserPage from '../../components/HeaderEditUserPage/HeaderEditUserPage'
 
-const EditUserPage = ()=> {
+const EditUserPage = () => {
   // hook de formulário
-  const { inputText, onChange} = useInput({
+  const { inputText, onChange } = useInput({
     name: '',
     email: '',
-    cpf: '',    
-  })  
+    cpf: '',
+  })
 
   return (
-    <Container>      
+    <Container>
+      <HeaderEditUserPage/>      
       <ContainerForm >
-        <Title>Editar</Title>
         <TextField
           variant="outlined"
           size="small"
@@ -25,7 +26,7 @@ const EditUserPage = ()=> {
           placeholder="Nome e sobrenome"
           onChange={onChange}
           required
-          style={{ margin: '0.5rem 0', width: '18rem'  }}
+          style={{ margin: '0.5rem 0', width: '18rem' }}
         />
 
         <TextField
@@ -52,7 +53,7 @@ const EditUserPage = ()=> {
           onChange={onChange}
           required
           style={{ margin: '0.5rem 0' }}
-        /> 
+        />
         <Button variant="contained" color="secondary">
           Criar
         </Button>

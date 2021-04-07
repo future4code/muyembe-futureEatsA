@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-export const ContainerSearchPage = styled.div`
+export const ContainerHeaderEditUserPage = styled.div`
+        width: 100vw;
         p{
             text-align:center;
         }
 `
-export const SearchPageHeader = styled.div`
+export const HeaderEditUser = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -22,11 +23,12 @@ export const Icons = styled.img`
 export const Texto = styled.span`
         margin: 0 5px 0 5px;
 `
-export const SubHeaderSearch = styled.div`       
+export const SubHeaderEditUser = styled.div`       
         display:flex;
         flex-direction: row;
         justify-content:space-between;
         margin: 10px 38px 10px 16px;
-        flex-wrap:wrap;        
+        flex-wrap:wrap;       
        
 `
+

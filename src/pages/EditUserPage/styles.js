@@ -8,15 +8,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;  
 `
-export const Title = styled.p`
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom:1rem;
-  margin-top: 2rem;
-  `
 export const ContainerForm = styled.form`   
   display:flex;
-  flex-direction: column; 
+  flex-direction: column;
+  margin-top:10px; 
   
 `

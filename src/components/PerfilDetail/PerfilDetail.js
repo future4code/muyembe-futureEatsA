@@ -4,10 +4,12 @@ import CardInfoAddress from '../CardInfoAddress/CardInfoAddress'
 import CardInfoUser from '../CardInfoUser/CardInfoUser'
 import EditIcon from '@material-ui/icons/Edit';
 import CardInfoHistoric from '../CardInfoHistoric/CardInfoHistoric';
+import HeaderPerfilPage from '../HeaderPerfilPage/HeaderPerfilPage'
 
 const PerfilDetail = () =>{
     return(
         <PerfilDetailContainer>
+            <HeaderPerfilPage/>
             <ContainerUser>
                  <CardInfoUser/>
                  <EditIcon/>

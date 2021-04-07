@@ -1,6 +1,11 @@
 import React from 'react'
-import FormPropsTextFields from '../../components/inputBusca/formSearch'
-import { ContainerSearchPage,SearchPageHeader,Icons,Texto,SubHeaderSearch } from './styles'
+import{
+    ContainerHeaderEditUserPage,
+    HeaderEditUser,
+    Icons,
+    Texto,
+    SubHeaderEditUser
+} from './styles'
 import bluetooth from '../../assets/bluetooth.png'
 import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
@@ -8,11 +13,10 @@ import wifi from '../../assets/wifi.png'
 import back from '../../assets/back.png'
 import Divider from '@material-ui/core/Divider';
 
-const SearchPage = () => {
-
+const HeaderEditUserPage = () => {
     return (
-        <ContainerSearchPage>
-            <SearchPageHeader>
+        <ContainerHeaderEditUserPage>
+            <HeaderEditUser>
                 <div>
                     <Icons src={signal} />
                     <Texto>Sketch</Texto>
@@ -24,17 +28,15 @@ const SearchPage = () => {
                     <Texto>100%</Texto>
                     <Icons src={fullBattery} />
                 </div>
-            </SearchPageHeader>
-            <SubHeaderSearch>
-                <Icons src={back}/>
-                <p>Busca</p>
-                <div></div>             
-            </SubHeaderSearch>
-            <Divider/>
-            <FormPropsTextFields />
-            <p>Busque por nome de restaurante</p>
-        </ContainerSearchPage>
+            </HeaderEditUser>
+            <SubHeaderEditUser>
+                <Icons src={back} />
+                <p>Editar</p>
+                <div></div>
+            </SubHeaderEditUser>
+            <Divider />
+        </ContainerHeaderEditUserPage>
     )
 }
 
-export default SearchPage
+export default HeaderEditUserPage
