@@ -29,3 +29,6 @@ export const ContainerForm = styled.form`
   display:flex;
   flex-direction: column;
 `
+export const MessageRegister = styled.div`
+margin-top:2rem;
+`
