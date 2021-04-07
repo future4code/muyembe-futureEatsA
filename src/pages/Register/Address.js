@@ -19,7 +19,7 @@ function Address() {
 
   const headers = {
     headers: {
-        auth: localStorage.getItem('token')
+        auth: window.localStorage.getItem('Token')
     }
 }
 
@@ -34,7 +34,7 @@ function Address() {
   
 axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address", inputText,headers)
           .then((answer) => {
-                  localStorage.setItem('token', answer.data.token)
+                  window.localStorage.setItem('Token', answer.data.token)
                   alert('endereço cadastrado')
 
           }).catch((error) => {
