@@ -67,7 +67,7 @@ function Register() {
           inputText,
         )
         .then((answer) => {
-          localStorage.setItem('token', answer.data.token)
+          window.localStorage.setItem('Token', answer.data.token)
           alert('Cadastro feito com sucesso')
           setMessage(
             <MessageRegister>
@@ -79,7 +79,7 @@ function Register() {
             </MessageRegister>,
           )
         })
-        .catch((answer) => {
+        .catch(() => {
           alert('Usuário já consta como cadastrado')
           setMessage(
             <MessageRegister>
