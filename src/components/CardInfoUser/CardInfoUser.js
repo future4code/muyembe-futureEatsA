@@ -1,11 +1,11 @@
 import React from 'react'
 import{InfoUserContainer,NameUser,EmailUser,CpfUser} from './styles'
-const CardInfoUser = () => {
+const CardInfoUser = (props) => {
     return (
         <InfoUserContainer>
-            <NameUser>Laécio da Conceição</NameUser>
-            <EmailUser>llll@gmail.com</EmailUser>
-            <CpfUser>746.766.766-87</CpfUser>
+            <NameUser>{props.user.name}</NameUser>
+            <EmailUser>{props.user.email}</EmailUser>
+            <CpfUser>{props.user.cpf}</CpfUser>
         </InfoUserContainer>
     )
 }

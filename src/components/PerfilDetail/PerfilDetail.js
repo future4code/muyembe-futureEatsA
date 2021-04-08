@@ -11,7 +11,7 @@ const PerfilDetail = (props) =>{
         <PerfilDetailContainer>
             <HeaderPerfilPage/>
             <ContainerUser>
-                 <CardInfoUser/>
+                 <CardInfoUser user={props.user}/>
                  <EditIcon/>
             </ContainerUser>
             <ContainerAddress>
