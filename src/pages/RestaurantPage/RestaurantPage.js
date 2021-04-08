@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
-import {RestaurantPageContainer, RestaurantHeader, GoBackButton, HeaderTitle} from "./styles";
+import {RestaurantHeader, GoBackButton, HeaderTitle} from "./styles";
 import {RestaurantDetailContainer, LogoImg, RestaurantName, DeliveryStatus, FoodType, RestaurantAdress} from "./styles";
 import RestaurantProductCard from "../../components/RestaurantProductCard/RestautantProductCard";
 import {previousPage} from "../../Routes/coordinator";
@@ -27,21 +27,17 @@ const RestaurantPage = () => {
         .then((res) => {
             setRestaurantDetails(res.data.restaurant)
             setProductDetails(res.data.restaurant.products)
-            console.log(res.data.restaurant.products)
-            
-        }).catch((error) => {
-            console.log(error)
         })
 
     }, [])
 
     const productsList = productDetails?.map((detail) => {
-        return <RestaurantProductCard category= {detail} img={detail} name={detail} description={detail} price={detail}/>
+        return <RestaurantProductCard category={detail} img={detail} name={detail} description={detail} price={detail}/>
     })
 
 
     return (
-        <RestaurantPageContainer>
+        <div className="Restaurant-page-container">
 
             <RestaurantHeader>
                 <GoBackButton onClick={()=> previousPage(history)}> ≤ </GoBackButton>
@@ -53,12 +49,12 @@ const RestaurantPage = () => {
                 <RestaurantName> {restaurantDetails.name} </RestaurantName>
                 <FoodType> {restaurantDetails.category} </FoodType>
                 <DeliveryStatus> {restaurantDetails.deliveryTime} min - Frete R${restaurantDetails.shipping},00 </DeliveryStatus>
-                <RestaurantAdress> {restaurantDetails.adress} </RestaurantAdress>
+                <RestaurantAdress> {restaurantDetails.address} </RestaurantAdress>
             </RestaurantDetailContainer>
 
             <div className="products-detail-container">{productsList}</div>
 
-        </RestaurantPageContainer>
+        </div>
     )
 }
 

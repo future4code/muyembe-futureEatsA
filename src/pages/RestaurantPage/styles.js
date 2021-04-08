@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
-export const RestaurantPageContainer = styled.div`
-  
-`
-
 export const RestaurantHeader = styled.div`
     width: 100%;
     height: 64px;
     display:flex;
     flex-direction: row;
-    border-bottom: 1px solid #b8b8b8;
     justify-content: center;
     align-items: flex-end;
+    border-bottom: 1px solid #b8b8b8;
 `
 
 export const GoBackButton = styled.button`
@@ -28,6 +24,11 @@ export const HeaderTitle = styled.h2`
     height: 19px;
     font-family: Roboto;
     font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
     color: #000000;
     margin-bottom: 12px;
 `
@@ -35,49 +36,82 @@ export const HeaderTitle = styled.h2`
 /*** Detalhes do restaurante ***/
 
 export const RestaurantDetailContainer = styled.div`
-    text-align: center;
+    width: 100vw;
+    height: 246px;
+    display: flex;
+    flex-direction:column;
 `
 
 export const LogoImg = styled.img`
     width: 328px;
     height: 120px;
+    align-self:center;
     margin-top: 17px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 `
 
 export const RestaurantName = styled.h3`
+    width: 328px;
+    height: 18px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
     color: #5cb646;
-    text-align: start;
-    margin-left: 16px;
-    margin-top: 12px;
+    align-self: center;
+    margin: 12px 0px 8px 0px;
 `
 
-export const FoodType = styled.h3`
-    color: #b8b8b8;
-    text-align: start;
-    margin-left: 16px;
+export const FoodType = styled.h2`
+    width: 328px;
+    height: 18px;
+    font-family: Roboto;
     font-size: 16px;
     font-weight: normal;
-    margin-top: 8px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #b8b8b8;
+    align-self: center;
+    margin-bottom:8px;
 `
 
-export const DeliveryStatus = styled.h3`
-    color: #b8b8b8;
-    text-align: start;
-    margin-left: 16px;
+export const DeliveryStatus = styled.h2`
+    width: 328px;
+    height: 18px;
+    font-family: Roboto;
     font-size: 16px;
     font-weight: normal;
-    margin-top: 8px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #b8b8b8;
+    font-size: 16px;
+    font-weight: normal;
+    align-self: center;
+    margin-bottom:10px;
 `
 
-export const RestaurantAdress = styled.h3`
-    color: #b8b8b8;
-    text-align: start;
-    margin-left: 16px;
+export const RestaurantAdress = styled.h2`
+    width: 328px;
+    height: 18px;
+    font-family: Roboto;
     font-size: 16px;
     font-weight: normal;
-    margin-top: 8px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #b8b8b8;
+    font-size: 16px;
+    font-weight: normal;
+    align-self: center;
 `
 
 /*** ***/
