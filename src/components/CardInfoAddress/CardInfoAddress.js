@@ -1,11 +1,16 @@
 import React from 'react'
 import {InfoAddressContainer,AddressUser,TextAddress} from './styles'
 
-const CardInfoAddress = () => {
+const CardInfoAddress = (props) => {
+   
     return (
         <InfoAddressContainer>
             <TextAddress>Endereço cadastrado</TextAddress>
-            <AddressUser>Rua almerinda,55 - Ventos Largos</AddressUser>           
+            <AddressUser>
+                {props.address.street } , 
+                {props.address.number} - 
+                {props.address.neighbourhood}
+            </AddressUser>           
         </InfoAddressContainer>
     )
 }

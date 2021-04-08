@@ -6,20 +6,20 @@ import EditIcon from '@material-ui/icons/Edit';
 import CardInfoHistoric from '../CardInfoHistoric/CardInfoHistoric';
 import HeaderPerfilPage from '../HeaderPerfilPage/HeaderPerfilPage'
 
-const PerfilDetail = () =>{
+const PerfilDetail = (props) =>{
     return(
         <PerfilDetailContainer>
             <HeaderPerfilPage/>
             <ContainerUser>
-                 <CardInfoUser/>
+                 <CardInfoUser user={props.user}/>
                  <EditIcon/>
             </ContainerUser>
             <ContainerAddress>
-                 <CardInfoAddress/>
+                 <CardInfoAddress address={props.address}/>
                  <EditIcon/>
             </ContainerAddress>
             <ContainerHistoric>
-                 <CardInfoHistoric/>
+                 <CardInfoHistoric listRequests={props.listRequests}/>
             </ContainerHistoric>              
         </PerfilDetailContainer>
     )
