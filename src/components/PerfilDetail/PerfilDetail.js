@@ -19,7 +19,7 @@ const PerfilDetail = (props) =>{
                  <EditIcon/>
             </ContainerAddress>
             <ContainerHistoric>
-                 <CardInfoHistoric/>
+                 <CardInfoHistoric listRequests={props.listRequests}/>
             </ContainerHistoric>              
         </PerfilDetailContainer>
     )
