@@ -12,7 +12,7 @@ const RestaurantProductCard = (props) => {
                 <ProductImg src={props.img.photoUrl} alt="foto de um dos produtos do restaurante" />
                 <ProductName> {props.name.name} </ProductName>
                 <ProductDescription> {props.description.description} </ProductDescription>
-                <ProductPrice> R${props.price.price} </ProductPrice>
+                <ProductPrice> R${props.price.price.toFixed(2)} </ProductPrice>
                 <AddButton>adicionar</AddButton>
             </ProductContainer>
           
