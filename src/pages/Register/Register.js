@@ -36,7 +36,7 @@ function Register() {
 
   // Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
   // const [changePage, setChangePage] = useState(false)
-  const [Message, setMessage] = useState('')
+  const [message, setMessage] = useState('')
 
   //visibilidade das senhas
   const [showPassword, setShowPassword] = useState(false)
@@ -84,11 +84,8 @@ function Register() {
           setMessage(
             <MessageRegister>
               <p>Usuário já cadastrado</p>
-              Tente login <strong onClick={() => login(history)}>aqui</strong>
-              <p>
-                ou cadastrar seu endereço <strong onClick={() => address(history)}> aqui</strong>
-              </p>
-            </MessageRegister>,
+              <p>Tente login <strong onClick={() => login(history)}>aqui</strong></p>
+            </MessageRegister>
           )
           clearInput()
         })
@@ -107,6 +104,7 @@ function Register() {
           <Title>Cadastrar</Title>
 
           <TextField
+            color="secondary"
             variant="outlined"
             size="small"
             label="Nome"
@@ -120,6 +118,7 @@ function Register() {
           />
 
           <TextField
+            color="secondary"
             variant="outlined"
             size="small"
             label="E-mail"
@@ -133,6 +132,7 @@ function Register() {
           />
 
           <TextField
+            color="secondary"
             variant="outlined"
             size="small"
             label="CPF"
@@ -146,6 +146,7 @@ function Register() {
           />
 
           <FormControl
+            color="secondary"
             variant="outlined"
             required="true"
             style={{ margin: '0.5rem 0' }}
@@ -173,6 +174,7 @@ function Register() {
           </FormControl>
 
           <FormControl
+            color="secondary"
             variant="outlined"
             required="true"
             style={{ margin: '0.5rem 0' }}
@@ -203,7 +205,7 @@ function Register() {
             Criar
           </Button>
         </ContainerForm>
-        {Message}
+        {message}
       </Container>
     </>
   )
