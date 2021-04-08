@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useInput } from '../../hooks/useInput'
+import { login, address } from '../../Routes/coordinator'
+import { useHistory } from 'react-router'
 import { TextField, Button } from '@material-ui/core'
 import { Title, ContainerForm, Container,MessageRegister } from './styles'
 import axios from "axios"
 
 function Address() {
+  const history = useHistory()
+  const [message, setMessage] = useState('')
 
 
   // hook de formulário
@@ -36,9 +40,21 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
           .then((answer) => {
                   window.localStorage.setItem('Token', answer.data.token)
                   alert('endereço cadastrado')
+                  setMessage(
+                    <MessageRegister>
+                       <p>Perfeito!</p>
+                       <p>Faça login por <strong onClick={() => login(history)}>aqui</strong></p>
+                    </MessageRegister>)
 
-          }).catch((error) => {
-              alert(error.message)
+          }).catch(() => {
+              alert('Por favor verfifique seus dados')
+              setMessage(
+                <MessageRegister>
+                   <p>Você pode já estar registrado:</p>
+                   <p>Tente login por <strong onClick={() => login(history)}>aqui</strong></p>
+                   <p>Ou precisa finalizar seu cadastro:</p>
+                   <p>Tente login por <strong onClick={() => address(history)}>aqui</strong></p>
+                </MessageRegister>)
           })
   
    }
@@ -51,6 +67,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
             <Title>Endereço</Title>
 
             <TextField
+              color="secondary"
               variant="outlined"
               size="small"
               label="Logradouro"
@@ -63,6 +80,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               required
             />
             <TextField
+              color="secondary"
               variant="outlined"
               size="small"
               label="Número"
@@ -75,6 +93,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               required
             />
             <TextField
+             color="secondary"
               variant="outlined"
               size="small"
               label="Complemento"
@@ -86,6 +105,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               style={{ margin: '0.5rem 0' }}
             />
             <TextField
+              color="secondary"
               variant="outlined"
               size="small"
               label="Bairro"
@@ -98,6 +118,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               required
             />
             <TextField
+              color="secondary"
               variant="outlined"
               size="small"
               label="Cidade"
@@ -110,6 +131,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               required
             />
             <TextField
+              color="secondary"
               variant="outlined"
               size="small"
               label="Estado"
@@ -126,6 +148,7 @@ axios.put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/addr
               Salvar
             </Button>
           </ContainerForm>
+          {message}
         </Container>
       
     </>
