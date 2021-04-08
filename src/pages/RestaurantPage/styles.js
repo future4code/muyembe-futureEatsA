@@ -14,7 +14,7 @@ export const RestaurantHeader = styled.div`
     align-items: flex-end;
 `
 
-export const HeaderButton = styled.button`
+export const GoBackButton = styled.button`
     width: 23px;
     height: 24px;
     background-color: white;
@@ -32,10 +32,52 @@ export const HeaderTitle = styled.h2`
     margin-bottom: 12px;
 `
 
-export const RestaurantDetail = styled.div`
-  
+/*** Detalhes do restaurante ***/
+
+export const RestaurantDetailContainer = styled.div`
+    text-align: center;
 `
 
-export const RestaurantProduct = styled.div`
-  
+export const LogoImg = styled.img`
+    width: 328px;
+    height: 120px;
+    margin-top: 17px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 `
+
+export const RestaurantName = styled.h3`
+    color: #5cb646;
+    text-align: start;
+    margin-left: 16px;
+    margin-top: 12px;
+`
+
+export const FoodType = styled.h3`
+    color: #b8b8b8;
+    text-align: start;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+`
+
+export const DeliveryStatus = styled.h3`
+    color: #b8b8b8;
+    text-align: start;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+`
+
+export const RestaurantAdress = styled.h3`
+    color: #b8b8b8;
+    text-align: start;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+`
+
+/*** ***/
