@@ -6,13 +6,13 @@ const RestaurantProductCard = (props) => {
     return (
         <RestaurantProductContainer>
 
-            <ProductCategory>Principais</ProductCategory>
+            <ProductCategory>{props.category.category}</ProductCategory>
 
             <ProductContainer>
-                <ProductImg src="https://picsum.photos/200" />
-                <ProductName>Bullguer</ProductName>
-                <ProductDescription>Pão, Carne, queijo, picles e molho.</ProductDescription>
-                <ProductPrice>R$20,00</ProductPrice>
+                <ProductImg src={props.img.photoUrl} alt="foto de um dos produtos do restaurante" />
+                <ProductName> {props.name.name} </ProductName>
+                <ProductDescription> {props.description.description} </ProductDescription>
+                <ProductPrice> R${props.price.price} </ProductPrice>
                 <AddButton>adicionar</AddButton>
             </ProductContainer>
           
