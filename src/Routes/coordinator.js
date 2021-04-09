@@ -7,7 +7,7 @@ export const address = (history) => {
 }
 
 export const login = (history) =>{
-    history.push('./login')
+    history.push('/login')
 }
 
 export const previousPage = (history) => {

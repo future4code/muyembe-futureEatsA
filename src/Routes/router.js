@@ -10,6 +10,7 @@ import PerfilPage from '../pages/PerfilPage/PerfilPage'
 import Cart from "../pages/CartPage/Cart";
 import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
 import EditUserPage from '../pages/EditUserPage/EditUserPage'
+import FeedPage from '../pages/FeedPage/FeedPage'
 
 const Router = () => {
 
@@ -17,6 +18,8 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
+        <FeedPage/>
+        <SimpleBottomNavigation />
         </Route>
         <Route exact path="/login">          
           <PaginaLogin/>
@@ -37,7 +40,6 @@ const Router = () => {
         <Route exact path="/busca">
           <SearchPage/>          
         </Route>
-
         <Route exact path="/restaurante">
           <RestaurantPage />
           <SimpleBottomNavigation />
