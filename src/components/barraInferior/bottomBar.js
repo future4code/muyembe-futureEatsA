@@ -6,6 +6,8 @@ import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import {BottomBar} from './styles'
+import {perfil,cart,home} from '../../Routes/coordinator'
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: {
@@ -16,6 +18,7 @@ const useStyles = makeStyles({
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const history = useHistory()
 
   return (
       <BottomBar>
@@ -27,9 +30,9 @@ export default function SimpleBottomNavigation() {
           showLabels
           className={classes.root}
         >
-            <BottomNavigationAction label="Home" icon={<HomeRoundedIcon/>} />
-            <BottomNavigationAction label="Carrinho" icon={<ShoppingCartRoundedIcon />} />
-            <BottomNavigationAction label="Perfil" icon={<PersonRoundedIcon />} />
+            <BottomNavigationAction label="Home" icon={<HomeRoundedIcon/>} onClick={()=>home(history)} />
+            <BottomNavigationAction label="Carrinho" icon={<ShoppingCartRoundedIcon />} onClick={()=>cart(history)} />
+            <BottomNavigationAction label="Perfil" icon={<PersonRoundedIcon />} onClick={()=>perfil(history)}/>
         </BottomNavigation>
     </BottomBar>
   );

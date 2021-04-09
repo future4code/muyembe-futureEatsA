@@ -55,7 +55,7 @@ const EditUserPage = () => {
           style={{ margin: '0.5rem 0' }}
         />
         <Button variant="contained" color="secondary">
-          Criar
+          Salvar
         </Button>
       </ContainerForm>
     </Container>
