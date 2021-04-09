@@ -12,8 +12,10 @@ import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
 import back from '../../assets/back.png'
 import Divider from '@material-ui/core/Divider';
-
+import {useHistory} from 'react-router-dom'
+import {previousPage} from '../../Routes/coordinator'
 const HeaderEditUserPage = () => {
+    const history = useHistory()
     return (
         <ContainerHeaderEditUserPage>
             <HeaderEditUser>
@@ -30,7 +32,7 @@ const HeaderEditUserPage = () => {
                 </div>
             </HeaderEditUser>
             <SubHeaderEditUser>
-                <Icons src={back} />
+                <Icons src={back} onClick={()=>previousPage(history)} />
                 <p>Editar</p>
                 <div></div>
             </SubHeaderEditUser>
