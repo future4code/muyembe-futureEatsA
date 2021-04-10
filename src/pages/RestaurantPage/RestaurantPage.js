@@ -9,7 +9,7 @@ import {previousPage} from "../../Routes/coordinator";
 const RestaurantPage = () => {
 
     const history = useHistory();
-    // const param = useParams();
+    const param = useParams();
     const [restaurantDetails, setRestaurantDetails] = useState([]);
     const [productDetails, setProductDetails] = useState([]);
 
@@ -23,13 +23,13 @@ const RestaurantPage = () => {
             }
         }
     
-        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/1`, headers)
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${param.id}`, headers)
         .then((res) => {
             setRestaurantDetails(res.data.restaurant)
             setProductDetails(res.data.restaurant.products)
         })
 
-    }, [])
+    }, [param.id])
 
     const productsList = productDetails?.map((detail) => {
         return <RestaurantProductCard category={detail} img={detail} name={detail} description={detail} price={detail}/>

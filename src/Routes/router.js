@@ -40,7 +40,7 @@ const Router = () => {
         <Route exact path="/busca">
           <SearchPage/>          
         </Route>
-        <Route exact path="/restaurante">
+        <Route exact path="/restaurante/:id">
           <RestaurantPage />
           <SimpleBottomNavigation />
         </Route>

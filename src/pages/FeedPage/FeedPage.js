@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import FormPropsTextFields from '../../components/inputBusca/formSearch'
 import bluetooth from '../../assets/bluetooth.png'
 import fullBattery from '../../assets/full-battery.png'
@@ -10,8 +10,13 @@ import axios from 'axios'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import SimpleBottomNavigation from '../../components/barraInferior/bottomBar'
 
+import FeedCard from "../../components/FeedCard/FeedCard"; /*** teste useParams ***/
+
 
 const FeedPage = () => {
+
+    const [restaurantName, setRestaurantName] = useState("") /*** teste useParams ***/
+
     useProtectedPage()
     useEffect(() => {
 
@@ -24,9 +29,18 @@ const FeedPage = () => {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants`, headers)
         .then((res) => {
             console.log(res.data)
+            setRestaurantName(res.data) /*** teste useParams ***/
         })
 
     }, [])
+
+    /*** teste useParams ***/
+
+    const nameList = restaurantName.restaurants?.map((detail) => {
+        return <FeedCard name={detail} id={detail}/>
+    })
+
+    /*** teste useParams ***/
 
 
     return (
@@ -59,6 +73,9 @@ const FeedPage = () => {
                     </ul>
                 </div>
             </Mainmenu>
+
+            <div>{nameList}</div> {/* /*** teste useParams ***/}
+
             <SimpleBottomNavigation /> 
         </ContainerFeedPage>
     )
