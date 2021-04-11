@@ -11,6 +11,6 @@ export const useInput = (initialValues) => {
   const clearInput = () => {
     setInputText(initialValues)
   }
-
+  
   return { inputText, onChange, clearInput};
 }; 

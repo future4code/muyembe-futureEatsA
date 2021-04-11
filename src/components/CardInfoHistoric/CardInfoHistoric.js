@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {
     InfoHistoricContainer,
     TextHistoric,
@@ -9,6 +9,7 @@ import {
 } from './styles'
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
+import GlobalStateContext from '../../globalState/globalStateContext';
 
 const useStyles = makeStyles({
     root: {
@@ -20,14 +21,14 @@ const useStyles = makeStyles({
     },
 });
 
-const CardInfoHistoric = (props) => {
-
+const CardInfoHistoric = () => {
+    const{states} = useContext(GlobalStateContext)
     const classes = useStyles();
     return (
         <InfoHistoricContainer>
             <TextHistoric>Histórico de pedidos</TextHistoric>
             <Divider className={classes.root} />
-            {props.listRequests.length > 0 ? props.listRequests.map((request) => {
+            {states.listRequests.length > 0 ? states.listRequests.map((request) => {
                 return (
                     <CardItemHistoric>
                         <RestaurantName>{request.name}</RestaurantName>

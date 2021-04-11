@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import GlobalStateContext from '../../globalState/globalStateContext'
 import{InfoUserContainer,NameUser,EmailUser,CpfUser} from './styles'
-const CardInfoUser = (props) => {
+
+const CardInfoUser = () => {
+    const{states} = useContext(GlobalStateContext)
     return (
         <InfoUserContainer>
-            <NameUser>{props.user.name}</NameUser>
-            <EmailUser>{props.user.email}</EmailUser>
-            <CpfUser>{props.user.cpf}</CpfUser>
+            <NameUser>{states.user.name}</NameUser>
+            <EmailUser>{states.user.email}</EmailUser>
+            <CpfUser>{states.user.cpf}</CpfUser>
         </InfoUserContainer>
     )
 }

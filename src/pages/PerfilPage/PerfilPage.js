@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { ContainerPerfilPage } from './styles'
 import PerfilDetail from '../../components/PerfilDetail/PerfilDetail'
 import axios from 'axios'
+import useProtectedPage from '../../hooks/useProtectedPage'
+import GlobalStateContext from '../../globalState/globalStateContext'
 
 const PerfilPage = () => {
-    const [address, setAddress] = useState({})
-    const [user, setUser] = useState({})
-    const [listRequests, setListRequests] = useState(
-        [{
-            name: 'Bullgueer Vila Madalena',
-            date: '23  outubro 2019',
-            subtotal: 'R$ 57,00'
-        }
-        ])
-
+    useProtectedPage()
+    const{setters} = useContext(GlobalStateContext) 
+    
     const getAddress = () => {
         const headers = {
             headers: {
@@ -22,7 +17,7 @@ const PerfilPage = () => {
         }
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile/address', headers)
             .then((response) => {
-                setAddress(response.data.address)
+                setters.setAddress(response.data.address)
             })
             .catch((error) => {
                 console.log(error.data)
@@ -37,7 +32,7 @@ const PerfilPage = () => {
         }
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile', headers)
             .then((response) => {
-                setUser(response.data.user)
+                setters.setUser(response.data.user)
             })
             .catch((error) => {
                 console.log(error.data)
@@ -51,7 +46,7 @@ const PerfilPage = () => {
 
     return (
         <ContainerPerfilPage>
-            <PerfilDetail address={address} user={user} listRequests={listRequests} />
+            <PerfilDetail />
         </ContainerPerfilPage>
     )
 }
