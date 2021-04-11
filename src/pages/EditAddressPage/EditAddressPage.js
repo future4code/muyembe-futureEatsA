@@ -1,34 +1,61 @@
-import React from 'react'
-import { useInput } from '../../hooks/useInput'
+import React,{useContext} from 'react'
 import { TextField, Button } from '@material-ui/core'
 import HeaderEditAddressPage from '../../components/HeaderEditAddressPage/HeaderEditAddressPage'
 import { ContainerForm, Container } from './styles'
+import useProtectedPage from '../../hooks/useProtectedPage'
+import GlobalStateContext from '../../globalState/globalStateContext'
+import axios from 'axios'
 
 const EditAddressPage = () => {
-  // hook de formulário
-  const { inputText, onChange } = useInput({
-    street: '',
-    number: '',
-    complement: '',
-    neighbourhood: '',
-    city: '',
-    state: '',
-  })
+  useProtectedPage()
+  const{states,setters} = useContext(GlobalStateContext)  
 
+  const onChangeEditAddress = (event)=>{
+        const { value, name } = event.target;
+        setters.setAddress({ ...states.address, [name]: value });
+  }
+
+  const updateAddress = (event) =>{
+        event.preventDefault();
+        const body ={
+          street: states.address.street,
+          number: states.address.number,
+          neighbourhood: states.address.neighbourhood,
+          city: states.address.city,
+          state: states.address.state,
+          complement: states.address.complement
+        }
+
+        const headers = {
+          headers:{
+            auth:localStorage.getItem('Token')
+          }
+        }
+
+        axios.put('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address', body, headers)
+        .then((response)=>{          
+            localStorage.setItem('Token', response.data.token)  
+            alert("Endereço alterado com sucesso")         
+        })
+        .catch(()=>{
+            alert("Não foi possível alterar seu endereço")
+        })        
+  }
+  
   return (
-    <>
+    
       <Container>
         <HeaderEditAddressPage />
-        <ContainerForm >
+        <ContainerForm onSubmit={updateAddress}>
           <TextField
             variant="outlined"
             size="small"
             label="Logradouro"
-            value={inputText.street}
+            value={states.address.street}
             type="text"
             name="street"
             placeholder="Rua/Av."
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0', width: '18rem' }}
             required
           />
@@ -36,11 +63,11 @@ const EditAddressPage = () => {
             variant="outlined"
             size="small"
             label="Número"
-            value={inputText.number}
+            value={states.address.number}
             type="text"
             name="number"
             placeholder="Número"
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0' }}
             required
           />
@@ -48,22 +75,22 @@ const EditAddressPage = () => {
             variant="outlined"
             size="small"
             label="Complemento"
-            value={inputText.complement}
+            value={states.address.complement}
             type="text"
             name="complement"
             placeholder="Apto/Bloco"
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0' }}
           />
           <TextField
             variant="outlined"
             size="small"
             label="Bairro"
-            value={inputText.neighbourhood}
+            value={states.address.neighbourhood}
             type="text"
             name="neighbourhood"
             placeholder="Bairro"
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0' }}
             required
           />
@@ -71,11 +98,11 @@ const EditAddressPage = () => {
             variant="outlined"
             size="small"
             label="Cidade"
-            value={inputText.city}
+            value={states.address.city}
             type="text"
             name="city"
             placeholder="Cidade"
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0' }}
             required
           />
@@ -83,11 +110,11 @@ const EditAddressPage = () => {
             variant="outlined"
             size="small"
             label="Estado"
-            value={inputText.state}
+            value={states.address.state}
             type="text"
             name="state"
             placeholder="Estado"
-            onChange={onChange}
+            onChange={onChangeEditAddress}
             style={{ margin: '0.5rem 0' }}
             required
           />
@@ -96,8 +123,8 @@ const EditAddressPage = () => {
           </Button>
         </ContainerForm>
       </Container>
-      )
-    </>
+      
+    
   )
 }
 

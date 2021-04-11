@@ -7,9 +7,11 @@ import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
 import back from '../../assets/back.png'
 import Divider from '@material-ui/core/Divider';
+import useProtectedPage from '../../hooks/useProtectedPage'
+
 
 const SearchPage = () => {
-
+    useProtectedPage()
     return (
         <ContainerSearchPage>
             <SearchPageHeader>

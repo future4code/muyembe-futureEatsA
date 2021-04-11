@@ -8,21 +8,21 @@ import HeaderPerfilPage from '../HeaderPerfilPage/HeaderPerfilPage'
 import {useHistory} from 'react-router-dom'
 import {editAddress,editPerfil} from '../../Routes/coordinator'
 
-const PerfilDetail = (props) =>{
+const PerfilDetail = () =>{   
     const history = useHistory()
     return(
         <PerfilDetailContainer>
             <HeaderPerfilPage/>
             <ContainerUser>
-                 <CardInfoUser user={props.user}/>
+                 <CardInfoUser />
                  <EditIcon onClick ={()=>editPerfil(history)}/>
             </ContainerUser>
             <ContainerAddress>
-                 <CardInfoAddress address={props.address}/>
+                 <CardInfoAddress/>
                  <EditIcon onClick={()=>editAddress(history)}/>
             </ContainerAddress>
             <ContainerHistoric>
-                 <CardInfoHistoric listRequests={props.listRequests}/>
+                 <CardInfoHistoric />
             </ContainerHistoric>              
         </PerfilDetailContainer>
     )
