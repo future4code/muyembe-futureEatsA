@@ -8,7 +8,7 @@ import HeaderPerfilPage from '../HeaderPerfilPage/HeaderPerfilPage'
 import {useHistory} from 'react-router-dom'
 import {editAddress,editPerfil} from '../../Routes/coordinator'
 
-const PerfilDetail = (props) =>{   
+const PerfilDetail = () =>{   
     const history = useHistory()
     return(
         <PerfilDetailContainer>

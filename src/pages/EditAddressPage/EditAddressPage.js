@@ -4,21 +4,49 @@ import HeaderEditAddressPage from '../../components/HeaderEditAddressPage/Header
 import { ContainerForm, Container } from './styles'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import GlobalStateContext from '../../globalState/globalStateContext'
+import axios from 'axios'
 
 const EditAddressPage = () => {
   useProtectedPage()
   const{states,setters} = useContext(GlobalStateContext)  
 
   const onChangeEditAddress = (event)=>{
-    const { value, name } = event.target;
-    setters.setAddress({ ...states.address, [name]: value });
+        const { value, name } = event.target;
+        setters.setAddress({ ...states.address, [name]: value });
+  }
+
+  const updateAddress = (event) =>{
+        event.preventDefault();
+        const body ={
+          street: states.address.street,
+          number: states.address.number,
+          neighbourhood: states.address.neighbourhood,
+          city: states.address.city,
+          state: states.address.state,
+          complement: states.address.complement
+        }
+
+        const headers = {
+          headers:{
+            auth:localStorage.getItem('Token')
+          }
+        }
+
+        axios.put('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address', body, headers)
+        .then((response)=>{          
+            localStorage.setItem('Token', response.data.token)  
+            alert("Endereço alterado com sucesso")         
+        })
+        .catch(()=>{
+            alert("Não foi possível alterar seu endereço")
+        })        
   }
   
   return (
     
       <Container>
         <HeaderEditAddressPage />
-        <ContainerForm >
+        <ContainerForm onSubmit={updateAddress}>
           <TextField
             variant="outlined"
             size="small"

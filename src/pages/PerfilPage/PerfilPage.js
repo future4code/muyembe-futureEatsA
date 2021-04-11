@@ -16,11 +16,11 @@ const PerfilPage = () => {
             }
         }
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile/address', headers)
-            .then((response) => {
-                setters.setAddress(response.data.address)
+            .then((response) => {               
+                setters.setAddress(response.data.address)               
             })
-            .catch((error) => {
-                console.log(error.data)
+            .catch(() => {
+                alert("Não foi possível carregar os dados do usuário")
             })
     }
 
@@ -31,14 +31,14 @@ const PerfilPage = () => {
             }
         }
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile', headers)
-            .then((response) => {
-                setters.setUser(response.data.user)
+            .then((response) => {            
+                setters.setUser(response.data.user)               
             })
-            .catch((error) => {
-                console.log(error.data)
+            .catch(() => {
+                alert("Não foi possível carregar os dados do usuário")
             })
     }
-
+    
     useEffect(() => {
         getAddress()
         getUser()

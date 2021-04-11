@@ -31,7 +31,7 @@ const EditUserPage = () => {
 
         axios.put('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile', body, headers )
         .then(()=>{
-              alert("Alterações realizadas com sucesso")             
+              alert("Informações alteradas com sucesso")             
         })
         .catch(()=>{
               alert("Não foi possível realizar as alterações")

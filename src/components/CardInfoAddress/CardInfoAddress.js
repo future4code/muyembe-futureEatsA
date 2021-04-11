@@ -1,7 +1,13 @@
 import React,{useContext} from 'react'
 import GlobalStateContext from '../../globalState/globalStateContext'
-import {InfoAddressContainer,AddressUser,TextAddress} from './styles'
-
+import {
+    InfoAddressContainer,
+    AddressUser,
+    TextAddress, 
+    Number,
+    Street,
+    Neighbourhood,  
+} from './styles'
 
 const CardInfoAddress = () => {
     const{states} = useContext(GlobalStateContext)
@@ -9,9 +15,9 @@ const CardInfoAddress = () => {
         <InfoAddressContainer>
             <TextAddress>Endereço cadastrado</TextAddress>
             <AddressUser>
-                {states.address.street } , 
-                {states.address.number} - 
-                {states.address.neighbourhood}
+                <Street>{states.address.street } ,</Street>  
+                <Number>{states.address.number} -</Number>  
+                <Neighbourhood>{states.address.neighbourhood}</Neighbourhood>           
             </AddressUser>           
         </InfoAddressContainer>
     )
