@@ -28,15 +28,14 @@ const CardInfoHistoric = () => {
         <InfoHistoricContainer>
             <TextHistoric>Histórico de pedidos</TextHistoric>
             <Divider className={classes.root} />
-            {states.listRequests.length > 0 ? states.listRequests.map((request) => {
+            {states.listOrders.length > 0 ? states.listOrders.map((order) => {
                 return (
                     <CardItemHistoric>
-                        <RestaurantName>{request.name}</RestaurantName>
-                        <DateRequest>{request.date}</DateRequest>
-                        <TotalCost>SUBTOTAL  {request.subtotal}</TotalCost>                       
+                        <RestaurantName>{order.name}</RestaurantName>
+                        <DateRequest>{order.date}</DateRequest>
+                        <TotalCost>SUBTOTAL  {order.subtotal}</TotalCost>                       
                     </CardItemHistoric>
                 )
-
             }) : <p>Você não realizou nenhum pedido</p>}
         </InfoHistoricContainer>
     )

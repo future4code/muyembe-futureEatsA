@@ -38,10 +38,26 @@ const PerfilPage = () => {
                 alert("Não foi possível carregar os dados do usuário")
             })
     }
+
+    const getOrders = () =>{
+        const headers = {
+            headers: {
+                auth: localStorage.getItem('Token')
+            }
+        }
+        axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/orders/history', headers)
+            .then((response) => {              
+                setters.setListOrders(response.data.orders)               
+            })
+            .catch(() => {
+                alert("Não foi possível carregar seu histórico de pedidos")
+            })
+    }
     
     useEffect(() => {
         getAddress()
         getUser()
+        getOrders()
     }, [])
 
     return (
