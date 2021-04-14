@@ -5,13 +5,7 @@ import axios from 'axios'
 const GlobalState = (props) => {
     const [address, setAddress] = useState({})
     const [user, setUser] = useState({})
-    const [listRequests, setListRequests] = useState(
-        [{
-            name: 'Bullgueer Vila Madalena',
-            date: '23  outubro 2019',
-            subtotal: 'R$ 57,00'
-        }
-        ])
+    const [listOrders, setListOrders] = useState([])
 
     const login = (body) => {
         axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
@@ -23,8 +17,8 @@ const GlobalState = (props) => {
     }
 
     const requests = { login }
-    const states = { address, user, listRequests }
-    const setters = { setAddress, setUser, setListRequests }
+    const states = { address, user, listOrders }
+    const setters = { setAddress, setUser, setListOrders }
 
     const data = { requests, states, setters }
 
