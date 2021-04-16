@@ -1,14 +1,30 @@
 import { Button } from "@material-ui/core";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {CartHeader} from './styled'
 import bluetooth from '../../assets/bluetooth.png'
 import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
-import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoice, SubTotal, Total, PaymentMethod, Address, Main, Texto, MeuCarrinho, AddressArea, AddressPlaceHolder, TextTotal} from './styled'
-
+import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoice, SubTotal, Total, PaymentMethod, Address, Main, Texto, MeuCarrinho, Neighbourhood, AddressArea, AddressPlaceHolder, TextTotal, Street, Number} from './styled'
+import RestaurantProductCard from '../../components/RestaurantProductCard/RestautantProductCard'
+import GlobalStateContext from "../../globalState/globalStateContext";
+import axios from "axios";
 
 const Cart = () => {
+const [orders, setOrders] = useState([])
+const {requests, states} = useContext(GlobalStateContext)
+
+useEffect(() => {
+  requests.getOrders()
+  requests.getAddress()
+}, [])
+
+// const ordersRendering = states.activeOrders.map((order) => {
+
+// })
+
+
+
   return (
     <div>
       <header>
@@ -29,10 +45,15 @@ const Cart = () => {
       </header>
       <AddressArea>
          <AddressPlaceHolder>Endereço de entrega</AddressPlaceHolder> 
-         <Address>Rua Alessandra Vieira, 42</Address>
+         <Address>
+           <Street>{`Rua ${states?.getUserAddress.street}, `}</Street>
+           <Number>{states?.getUserAddress.number}</Number>
+            <Neighbourhood>{` - ${states?.getUserAddress.neighbourhood}`}</Neighbourhood>
+           </Address>
 
       </AddressArea>
-      <PaymentMethod>Carrinho vazio</PaymentMethod>
+      <PaymentMethod>{orders > 0 ? <RestaurantProductCard/> : 'Carrinho vazio'}</PaymentMethod>
+      
       <Main>
       
       <Total>
@@ -48,12 +69,12 @@ const Cart = () => {
 
       <PaymentChoice>
       <ChoicesContainer>
+      <input type="radio" name="pagamento" id="cartao"/>
       <Choices htmlFor="cartao">Cartão de crédito</Choices>
-      <input type="radio" name="cartao" id="cartao"/><br/>
       </ChoicesContainer>
       <ChoicesContainer>
+      <input type="radio" name="pagamento" id="dinheiro" />
       <Choices htmlFor="dinheiro">Dinheiro</Choices>
-      <input type="radio" name="dinheiro" id="dinheiro" /><br/>
       </ChoicesContainer>
       </PaymentChoice>
       </Main>

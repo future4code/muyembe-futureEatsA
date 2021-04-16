@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import GlobalStateContext from "../../globalState/globalStateContext";
 import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, AddButton} from "./styles";
 
 
 const RestaurantProductCard = (props) => {
+const {states} = useContext(GlobalStateContext)
+
     return (
         <RestaurantProductContainer>
 
@@ -13,7 +16,7 @@ const RestaurantProductCard = (props) => {
                 <ProductName> {props.name.name} </ProductName>
                 <ProductDescription> {props.description.description} </ProductDescription>
                 <ProductPrice> R${props.price.price.toFixed(2)} </ProductPrice>
-                <AddButton>adicionar</AddButton>
+                <AddButton>{states.isInCart ? "Remover" : "adicionar"}</AddButton>
             </ProductContainer>
           
         </RestaurantProductContainer>
