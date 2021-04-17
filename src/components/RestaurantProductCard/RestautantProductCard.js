@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect, useContext } from "react";
+import GlobalStateContext from "../../globalState/globalStateContext";
+
 import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, AddButton} from "./styles";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -6,6 +9,7 @@ import axios from "axios";
 
 
 const RestaurantProductCard = (props) => {
+
 
     const param = useParams();
 
