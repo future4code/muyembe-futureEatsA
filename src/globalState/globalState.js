@@ -8,9 +8,6 @@ const GlobalState = (props) => {
     const [listOrders, setListOrders] = useState([])
     const [activeOrders, setActiveOrders] = useState([])
     const [getUserAddress, setGetUserAddress] = useState({})
-    const [isInCart, setIsInCart] = useState(false)
-
-//Criei esse state isInCart pra que quando o pedido seja adicionado no carrinho, eu possa fazer uma renderização condicional no botão do card de pedido. Lembro do Laecio ter falado algo sobre uma funçao parecida que ele já montou, mas não lembro onde estava. Então essa parte é temporária. 
 
     const login = (body) => {
         axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
@@ -53,8 +50,8 @@ const GlobalState = (props) => {
       }
 
     const requests = { login, getOrders, getAddress }
-    const states = { address, user, listOrders, activeOrders, isInCart, getUserAddress }
-    const setters = { setAddress, setUser, setListOrders, setIsInCart }
+    const states = { address, user, listOrders, activeOrders, getUserAddress }
+    const setters = { setAddress, setUser, setListOrders }
 
     const data = { requests, states, setters }
 

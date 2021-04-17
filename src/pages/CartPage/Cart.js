@@ -6,7 +6,7 @@ import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
 import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoice, SubTotal, Total, PaymentMethod, Address, Main, Texto, MeuCarrinho, Neighbourhood, AddressArea, AddressPlaceHolder, TextTotal, Street, Number} from './styled'
-import RestaurantProductCard from '../../components/RestaurantProductCard/RestautantProductCard'
+import ProductCardCart from './productCard/ProductCardCart'
 import GlobalStateContext from "../../globalState/globalStateContext";
 import axios from "axios";
 
@@ -52,7 +52,7 @@ useEffect(() => {
            </Address>
 
       </AddressArea>
-      <PaymentMethod>{orders > 0 ? <RestaurantProductCard/> : 'Carrinho vazio'}</PaymentMethod>
+      <PaymentMethod>{orders > 0 ? <ProductCardCart/> : 'Carrinho vazio'}</PaymentMethod>
       
       <Main>
       
