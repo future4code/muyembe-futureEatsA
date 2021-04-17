@@ -9,9 +9,9 @@ import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoic
 import ProductCardCart from './productCard/ProductCardCart'
 import GlobalStateContext from "../../globalState/globalStateContext";
 import axios from "axios";
+import RestaurantProductCard from "../../components/RestaurantProductCard/RestautantProductCard";
 
 const Cart = () => {
-const [orders, setOrders] = useState([])
 const {requests, states} = useContext(GlobalStateContext)
 
 useEffect(() => {
@@ -19,9 +19,9 @@ useEffect(() => {
   requests.getAddress()
 }, [])
 
-// const ordersRendering = states.activeOrders.map((order) => {
-
-// })
+const ordersRendering = states.cart.map((product) => {
+    return <RestaurantProductCard product={product}/>
+})
 
 
 
@@ -52,7 +52,7 @@ useEffect(() => {
            </Address>
 
       </AddressArea>
-      <PaymentMethod>{orders > 0 ? <ProductCardCart/> : 'Carrinho vazio'}</PaymentMethod>
+      <PaymentMethod>{states.cart.length > 0 ? ordersRendering : 'Carrinho vazio'}</PaymentMethod>
       
       <Main>
       
@@ -79,7 +79,7 @@ useEffect(() => {
       </PaymentChoice>
       </Main>
       <Container>
-      <ConfirmButton color={'secondary'} variant={'contained'} >Confirmar</ConfirmButton>
+      <ConfirmButton color={'secondary'} variant={'contained'}>Confirmar</ConfirmButton>
       </Container>
     </div>
   );

@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
-import {BottomBar} from './styles'
+import {BottomBar, SisterDiv} from './styles'
 import {perfil,cart,home} from '../../Routes/coordinator'
 import {useHistory} from 'react-router-dom'
 
@@ -21,6 +21,8 @@ export default function SimpleBottomNavigation() {
   const history = useHistory()
 
   return (
+    <>
+    {/* <SisterDiv></SisterDiv> */}
       <BottomBar>
         <BottomNavigation
           value={value}
@@ -35,5 +37,6 @@ export default function SimpleBottomNavigation() {
             <BottomNavigationAction label="Perfil" icon={<PersonRoundedIcon />} onClick={()=>perfil(history)}/>
         </BottomNavigation>
     </BottomBar>
+    </>
   );
 }

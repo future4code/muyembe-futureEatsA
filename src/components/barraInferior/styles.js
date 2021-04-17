@@ -7,3 +7,7 @@ export const BottomBar = styled.div`
     width: 100vw;
     border:1px solid black;
 `
+
+export const SisterDiv = styled.div`
+    height: 58px;
+`

@@ -6,9 +6,9 @@ const GlobalState = (props) => {
     const [address, setAddress] = useState({})
     const [user, setUser] = useState({})
     const [listOrders, setListOrders] = useState([])
-    const [filteredOrders, setFilteredOrders] = useState([])
     const [activeOrders, setActiveOrders] = useState([])
     const [getUserAddress, setGetUserAddress] = useState({})
+    const [cart, setCart] = useState([])
 
     const login = (body) => {
         axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
@@ -49,8 +49,8 @@ const GlobalState = (props) => {
     }
 
     const requests = { login, getOrders, getAddress }
-    const states = { address, user, listOrders, activeOrders, getUserAddress, filteredOrders }
-    const setters = { setAddress, setUser, setListOrders, setFilteredOrders }
+    const states = { address, user, listOrders, activeOrders, getUserAddress, cart }
+    const setters = { setAddress, setUser, setListOrders, setCart }
 
     const data = { requests, states, setters }
 

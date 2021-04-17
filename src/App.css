@@ -4,6 +4,7 @@
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
   color: #121212;
+  box-sizing: border-box;
 }
 
 html {
