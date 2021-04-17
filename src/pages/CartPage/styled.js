@@ -43,7 +43,7 @@ export const Address = styled.p`
 `;
 
 export const Main = styled.main`
-  height: 60vh;
+  height: 50vh;
   margin-top: 10px;
   font-weight: bold;
 `;
@@ -56,7 +56,7 @@ export const Total = styled.div`
 `;
 
 export const TextTotal = styled.p`
-  margin: 10px 0 0 10px;
+  margin: 10px 10px 0 10px;
   color: ${green};
   font-size: 1.2rem;
 `;
@@ -77,13 +77,13 @@ export const SubTotal = styled.div`
 export const PaymentChoice = styled.div`
     font-size: 1.2rem;
     padding: 20px;
-    height: 30vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
 `;
 
 export const Choices = styled.label`
-    margin-right: 0.9rem;
+    margin-left: 0.9rem;
 `
 
 export const ChoicesContainer = styled.div`
@@ -100,6 +100,16 @@ export const Container = styled.div`
  display: flex;
  width: 100%;
  justify-content: center;
+`
 
- 
+export const Street = styled.span`
+
+`
+
+export const Number = styled.span`
+
+`
+
+export const Neighbourhood = styled.span`
+
 `

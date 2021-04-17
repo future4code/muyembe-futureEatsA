@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import GlobalStateContext from "../../globalState/globalStateContext";
-import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, AddButton} from "./styles";
+import GlobalStateContext from "../../../globalState/globalStateContext";
+import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, AddButton} from "./styled";
 
 
-const RestaurantProductCard = (props) => {
+const ProductCardCart = (props) => {
 const {states} = useContext(GlobalStateContext)
 
     return (
@@ -23,4 +23,4 @@ const {states} = useContext(GlobalStateContext)
     )
 }
 
-export default RestaurantProductCard;
+export default ProductCardCart;

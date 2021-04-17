@@ -6,6 +6,8 @@ const GlobalState = (props) => {
     const [address, setAddress] = useState({})
     const [user, setUser] = useState({})
     const [listOrders, setListOrders] = useState([])
+    const [activeOrders, setActiveOrders] = useState([])
+    const [getUserAddress, setGetUserAddress] = useState({})
 
     const login = (body) => {
         axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
@@ -16,8 +18,39 @@ const GlobalState = (props) => {
             })
     }
 
-    const requests = { login }
-    const states = { address, user, listOrders }
+    
+
+    const getOrders = () => {
+        const headers = {
+            headers: {
+                auth: localStorage.getItem('Token')
+            }
+        }
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/active-order`, headers)
+        .then((response) => {
+            console.log(response)
+            setActiveOrders(response.data)
+        }).catch((response) => {
+            console.log(response)
+        })
+    }
+
+    const getAddress = () => {
+        const headers = {
+          headers: {
+              auth: localStorage.getItem('Token')
+          }
+      }
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile/address`, headers).then((response) => {
+          console.log(response)
+          setGetUserAddress(response.data.address)
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
+
+    const requests = { login, getOrders, getAddress }
+    const states = { address, user, listOrders, activeOrders, getUserAddress }
     const setters = { setAddress, setUser, setListOrders }
 
     const data = { requests, states, setters }
