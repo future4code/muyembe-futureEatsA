@@ -10,9 +10,9 @@ const RestaurantPage = () => {
 
     const history = useHistory();
     const param = useParams();
-    const [restaurantDetails, setRestaurantDetails] = useState([]);
+    const [restaurantDetails, setRestaurantDetails] = useState({});
     const [productDetails, setProductDetails] = useState([]);
-
+    const [productCategory, setProductCategory] = useState([""]);
 
 
     useEffect(() => {
@@ -27,13 +27,35 @@ const RestaurantPage = () => {
         .then((res) => {
             setRestaurantDetails(res.data.restaurant)
             setProductDetails(res.data.restaurant.products)
+            setProductCategory(res.data.restaurant.products)
+            console.log(res.data.restaurant.products)
         })
+        
 
     }, [param.id])
 
     const productsList = productDetails?.map((detail) => {
-        return <RestaurantProductCard category={detail} img={detail} name={detail} description={detail} price={detail}/>
+        return <RestaurantProductCard  category={detail} img={detail} name={detail} description={detail} price={detail} id={detail}/>
     })
+
+    const filteredProductsList = productsList.filter((product) => {
+        return product.id === product.id
+    })
+
+    console.log(filteredProductsList)
+
+    //   const categoryList = productCategory?.map((detail) => {
+    //     return detail.category
+    // })
+
+    // const uniqueCategory = [...new Set(categoryList)]; 
+
+
+    // const newCategoryList = uniqueCategory?.map((detail) => {
+    //     return <RestaurantProductCard category={detail} />
+    // })
+
+    // console.log(newCategoryList)
 
 
     return (
