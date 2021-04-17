@@ -5,8 +5,11 @@ import { ContainerForm, Container } from './styles'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import GlobalStateContext from '../../globalState/globalStateContext'
 import axios from 'axios'
+import { perfil } from '../../Routes/coordinator'
+import {useHistory} from 'react-router-dom'
 
 const EditAddressPage = () => {
+  const history = useHistory()
   useProtectedPage()
   const{states,setters} = useContext(GlobalStateContext)  
 
@@ -35,7 +38,8 @@ const EditAddressPage = () => {
         axios.put('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address', body, headers)
         .then((response)=>{          
             localStorage.setItem('Token', response.data.token)  
-            alert("Endereço alterado com sucesso")         
+            alert("Endereço alterado com sucesso")
+            perfil(history)         
         })
         .catch(()=>{
             alert("Não foi possível alterar seu endereço")

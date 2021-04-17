@@ -5,8 +5,11 @@ import HeaderEditUserPage from '../../components/HeaderEditUserPage/HeaderEditUs
 import useProtectedPage from '../../hooks/useProtectedPage'
 import GlobalStateContext from '../../globalState/globalStateContext'
 import axios from 'axios'
+import { perfil } from '../../Routes/coordinator'
+import {useHistory} from 'react-router-dom'
 
 const EditUserPage = () => {
+  const history = useHistory()
   useProtectedPage()
   const{states,setters} = useContext(GlobalStateContext)
 
@@ -31,7 +34,8 @@ const EditUserPage = () => {
 
         axios.put('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile', body, headers )
         .then(()=>{
-              alert("Informações alteradas com sucesso")             
+              alert("Informações alteradas com sucesso") 
+              perfil(history)            
         })
         .catch(()=>{
               alert("Não foi possível realizar as alterações")
