@@ -35,14 +35,10 @@ const RestaurantPage = () => {
     }, [param.id])
 
     const productsList = productDetails?.map((detail) => {
-        return <RestaurantProductCard  category={detail} img={detail} name={detail} description={detail} price={detail} id={detail}/>
+        return <RestaurantProductCard product={detail}/>
     })
 
-    const filteredProductsList = productsList.filter((product) => {
-        return product.id === product.id
-    })
 
-    console.log(filteredProductsList)
 
     //   const categoryList = productCategory?.map((detail) => {
     //     return detail.category

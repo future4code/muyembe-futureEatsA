@@ -43,7 +43,7 @@ export const Address = styled.p`
 `;
 
 export const Main = styled.main`
-  height: 50vh;
+  height: 100%;
   margin-top: 10px;
   font-weight: bold;
 `;
@@ -77,7 +77,6 @@ export const SubTotal = styled.div`
 export const PaymentChoice = styled.div`
     font-size: 1.2rem;
     padding: 20px;
-    height: 25vh;
     display: flex;
     flex-direction: column;
 `;
@@ -93,6 +92,11 @@ export const ChoicesContainer = styled.div`
 export const ConfirmButton = styled(Button)`
     width: 80vw;
     background-color: ${green};
+
+    &&{
+      margin-bottom: 1rem;
+    } 
+    
 
 `
 
