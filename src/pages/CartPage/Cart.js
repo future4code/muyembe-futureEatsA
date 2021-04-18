@@ -14,11 +14,8 @@ import {useInput} from '../../hooks/useInput'
 
 const Cart = () => {
 const {requests, states} = useContext(GlobalStateContext)
+const { inputText, onChange } = useInput({})
 
-const { inputText, onChange } = useInput({
-})
-
-console.log(states.cart)
 
 
 useEffect(() => {
@@ -29,6 +26,12 @@ const ordersRendering = states.cart.map((product) => {
     return <RestaurantProductCard product={product}/>
 })
 
+
+const ordersPrice = states?.cart?.reduce((accumulator, currentValue) => {
+  return accumulator += currentValue.price
+}, 0)
+
+console.log(states.cart)
 
     const placeOrder = () => {
         const headers = {
@@ -97,7 +100,7 @@ const ordersRendering = states.cart.map((product) => {
         <TextTotal>Frete R$0,00</TextTotal>
         <SubTotal>
         <TextTotal>SUBTOTAL</TextTotal>
-        <TextTotal>R$0,00</TextTotal>
+        <TextTotal>{`R$ ${ordersPrice.toFixed(2)}`}</TextTotal>
         </SubTotal>
       </Total>
       
