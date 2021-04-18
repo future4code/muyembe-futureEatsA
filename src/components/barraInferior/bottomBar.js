@@ -22,7 +22,7 @@ export default function SimpleBottomNavigation() {
 
   return (
     <>
-    {/* <SisterDiv></SisterDiv> */}
+    <SisterDiv></SisterDiv>
       <BottomBar>
         <BottomNavigation
           value={value}
