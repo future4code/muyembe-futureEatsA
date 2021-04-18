@@ -35,7 +35,7 @@ const RestaurantPage = () => {
     }, [param.id])
 
     const productsList = productDetails?.map((detail) => {
-        return <RestaurantProductCard product={detail}/>
+        return <RestaurantProductCard key={detail.id} product={detail}/>
     })
 
 
