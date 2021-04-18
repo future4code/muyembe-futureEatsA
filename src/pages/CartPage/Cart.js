@@ -6,16 +6,22 @@ import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
 import {Icons, Container, ConfirmButton, Choices, ChoicesContainer, PaymentChoice, SubTotal, Total, PaymentMethod, Address, Main, Texto, MeuCarrinho, Neighbourhood, AddressArea, AddressPlaceHolder, TextTotal, Street, Number} from './styled'
-import ProductCardCart from './productCard/ProductCardCart'
 import GlobalStateContext from "../../globalState/globalStateContext";
 import axios from "axios";
 import RestaurantProductCard from "../../components/RestaurantProductCard/RestautantProductCard";
+import {useInput} from '../../hooks/useInput'
+
 
 const Cart = () => {
 const {requests, states} = useContext(GlobalStateContext)
 
+const { inputText, onChange } = useInput({
+})
+
+console.log(states.cart)
+
+
 useEffect(() => {
-  requests.getOrders()
   requests.getAddress()
 }, [])
 
@@ -24,6 +30,37 @@ const ordersRendering = states.cart.map((product) => {
 })
 
 
+    const placeOrder = () => {
+        const headers = {
+            headers: {
+                auth: localStorage.getItem('Token')
+            }
+        }
+
+        const body = {
+            body: {
+                "products": [{
+                    "id": states.cart[0].id,
+                    "quantity": 1
+                }],
+                "paymentMethod": inputText.payment
+            }
+        }
+    console.log(states.cart[0].id)
+    console.log(inputText.payment)
+
+    if(states.cart.length > 0) {
+      axios.post(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${states.cart[0].id}/order`, headers, body)
+        .then((res) => {
+           console.log(res.data)
+        }).catch((error) => {
+          console.log(error.message)
+        })
+    } else {
+      alert('deu ruim')
+    }
+        
+    }
 
   return (
     <div>
@@ -69,17 +106,17 @@ const ordersRendering = states.cart.map((product) => {
 
       <PaymentChoice>
       <ChoicesContainer>
-      <input type="radio" name="pagamento" id="cartao"/>
-      <Choices htmlFor="cartao">Cartão de crédito</Choices>
+      <input onChange={onChange} value={'creditcard'} type="radio" name={"payment"} id="card"/>
+      <Choices htmlFor="money">Cartão de crédito</Choices>
       </ChoicesContainer>
       <ChoicesContainer>
-      <input type="radio" name="pagamento" id="dinheiro" />
-      <Choices htmlFor="dinheiro">Dinheiro</Choices>
+      <input onChange={onChange} value={'money'} type="radio" name="payment" id="money" />
+      <Choices htmlFor="money">Dinheiro</Choices>
       </ChoicesContainer>
       </PaymentChoice>
       </Main>
       <Container>
-      <ConfirmButton color={'secondary'} variant={'contained'}>Confirmar</ConfirmButton>
+      <ConfirmButton color={'secondary'} variant={'contained'} onClick={() => placeOrder()}>Confirmar</ConfirmButton>
       </Container>
     </div>
   );
