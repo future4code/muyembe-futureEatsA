@@ -11,22 +11,26 @@ const RestaurantProductCard = (props) => {
     const [remove, setRemove] = useState(false)
 
     const addToCart = () => {
-            setters.setCart([...states.cart, {...props.product, quantity: 1}])
+            setters.setCart({
+                products: [...states.cart.products, {...props.product, quantity: 1}],
+                restaurantId: props.restaurant.id,
+                shipping: props.restaurant.shipping
+            })
             alert('Adicionado ao carrinho')     
         }
        
-
+console.log(states.cart)
     const removeFromCart = (id) =>{
 
-        const newCart = states?.cart.filter((product) => {
+        const newCart = states?.cart.products.filter((product) => {
               return product.id !== id
         }) 
-        setters.setCart(newCart) 
+        setters.setCart({...states.cart, products: newCart}) 
           
     } 
 
     const buttonRendering = (id) => {
-        const checkingCart = states.cart.some((product) => {
+        const checkingCart = states.cart.products.some((product) => {
             return product.id === id
         })
         

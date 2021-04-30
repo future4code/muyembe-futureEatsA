@@ -14,6 +14,7 @@ const RestaurantPage = () => {
     const [productDetails, setProductDetails] = useState([]);
     const [productCategory, setProductCategory] = useState([""]);
 
+console.log(restaurantDetails)
 
     useEffect(() => {
 
@@ -35,7 +36,7 @@ const RestaurantPage = () => {
     }, [param.id])
 
     const productsList = productDetails?.map((detail) => {
-        return <RestaurantProductCard key={detail.id} product={detail}/>
+        return <RestaurantProductCard restaurant={restaurantDetails} key={detail.id} product={detail}/>
     })
 
 
