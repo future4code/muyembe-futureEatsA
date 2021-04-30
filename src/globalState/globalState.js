@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import GlobalStateContext from './globalStateContext'
 import axios from 'axios'
 
+
 const GlobalState = (props) => {
     const [address, setAddress] = useState({})
     const [user, setUser] = useState({})
@@ -10,7 +11,9 @@ const GlobalState = (props) => {
     const [getUserAddress, setGetUserAddress] = useState({})
     const [cart, setCart] = useState({products: []})
     const [shipping, setShipping] = useState([])
+    
 
+  
     const login = (body) => {
         axios.post("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login", body)
             .then((res) => {
@@ -54,8 +57,10 @@ const GlobalState = (props) => {
                 auth: localStorage.getItem('Token')
             }
         }
-        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants`, headers).then((response) => {
-            setShipping(response.data.restaurants)
+      
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${states.cart.restaurantId}`, headers).then((response) => {
+         
+        setShipping(response.data.restaurant.shipping)
         }).catch((error) => {
             console.log(error)
         })

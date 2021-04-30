@@ -3,7 +3,7 @@ import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 import {RestaurantHeader, GoBackButton, HeaderTitle} from "./styles";
 import {RestaurantDetailContainer, LogoImg, RestaurantName, DeliveryStatus, FoodType, RestaurantAdress} from "./styles";
-import RestaurantProductCard from "../../components/RestaurantProductCard/RestautantProductCard";
+import RestaurantProductCard from "../../components/RestaurantProductCard/RestaurantProductCard";
 import {previousPage} from "../../Routes/coordinator";
 
 const RestaurantPage = () => {

@@ -19,7 +19,7 @@ const RestaurantProductCard = (props) => {
             alert('Adicionado ao carrinho')     
         }
        
-console.log(states.cart)
+    console.log(states.cart)
     const removeFromCart = (id) =>{
 
         const newCart = states?.cart.products.filter((product) => {
