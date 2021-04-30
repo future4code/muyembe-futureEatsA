@@ -15,23 +15,23 @@ import {useInput} from '../../hooks/useInput'
 const Cart = () => {
 const {requests, states} = useContext(GlobalStateContext)
 const { inputText, onChange } = useInput({})
+const {shipping, setShipping} = useState(states.cart?.shipping?.toFixed(2))
 
-
-
+console.log(states.cart?.shipping?.toFixed(2))
 useEffect(() => {
   requests.getAddress()
+  requests.getShipping()
 }, [])
 
-const ordersRendering = states.cart.map((product) => {
+const ordersRendering = states.cart.products.map((product) => {
     return <RestaurantProductCard product={product}/>
 })
 
 
-const ordersPrice = states?.cart?.reduce((accumulator, currentValue) => {
+const ordersPrice = states?.cart?.products.reduce((accumulator, currentValue) => {
   return accumulator += currentValue.price
 }, 0)
 
-console.log(states.cart)
 
     const placeOrder = () => {
         const headers = {
@@ -41,19 +41,15 @@ console.log(states.cart)
         }
 
         const body = {
-            body: {
                 "products": [{
-                    "id": states.cart[0].id,
+                    "id": states.cart?.products[0]?.id,
                     "quantity": 1
                 }],
                 "paymentMethod": inputText.payment
-            }
         }
-    console.log(states.cart[0].id)
-    console.log(inputText.payment)
 
-    if(states.cart.length > 0) {
-      axios.post(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${states.cart[0].id}/order`, headers, body)
+    if(states.cart.products.length > 0) {
+      axios.post(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${states.cart.restaurantId}/order`, body, headers)
         .then((res) => {
            console.log(res.data)
         }).catch((error) => {
@@ -92,12 +88,12 @@ console.log(states.cart)
            </Address>
 
       </AddressArea>
-      <PaymentMethod>{states.cart.length > 0 ? ordersRendering : 'Carrinho vazio'}</PaymentMethod>
+      <PaymentMethod>{states.cart.products.length > 0 ? ordersRendering : 'Carrinho vazio'}</PaymentMethod>
       
       <Main>
       
       <Total>
-        <TextTotal>Frete R$0,00</TextTotal>
+        <TextTotal>Frete R${shipping}</TextTotal>
         <SubTotal>
         <TextTotal>SUBTOTAL</TextTotal>
         <TextTotal>{`R$ ${ordersPrice.toFixed(2)}`}</TextTotal>
@@ -109,8 +105,9 @@ console.log(states.cart)
 
       <PaymentChoice>
       <ChoicesContainer>
+        {/* <p>{shippingPrice}</p> */}
       <input onChange={onChange} value={'creditcard'} type="radio" name={"payment"} id="card"/>
-      <Choices htmlFor="money">Cartão de crédito</Choices>
+      <Choices htmlFor="creditcard">Cartão de crédito</Choices>
       </ChoicesContainer>
       <ChoicesContainer>
       <input onChange={onChange} value={'money'} type="radio" name="payment" id="money" />
