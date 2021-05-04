@@ -12,9 +12,6 @@ const RestaurantPage = () => {
     const param = useParams();
     const [restaurantDetails, setRestaurantDetails] = useState({});
     const [productDetails, setProductDetails] = useState([]);
-    const [productCategory, setProductCategory] = useState([""]);
-
-console.log(restaurantDetails)
 
     useEffect(() => {
 
@@ -28,8 +25,6 @@ console.log(restaurantDetails)
         .then((res) => {
             setRestaurantDetails(res.data.restaurant)
             setProductDetails(res.data.restaurant.products)
-            setProductCategory(res.data.restaurant.products)
-            console.log(res.data.restaurant.products)
         })
         
 
@@ -38,21 +33,6 @@ console.log(restaurantDetails)
     const productsList = productDetails?.map((detail) => {
         return <RestaurantProductCard restaurant={restaurantDetails} key={detail.id} product={detail}/>
     })
-
-
-
-    //   const categoryList = productCategory?.map((detail) => {
-    //     return detail.category
-    // })
-
-    // const uniqueCategory = [...new Set(categoryList)]; 
-
-
-    // const newCategoryList = uniqueCategory?.map((detail) => {
-    //     return <RestaurantProductCard category={detail} />
-    // })
-
-    // console.log(newCategoryList)
 
 
     return (
@@ -67,7 +47,7 @@ console.log(restaurantDetails)
                 <LogoImg src={restaurantDetails.logoUrl} alt="logomarca do restaurante escolhido"/>
                 <RestaurantName> {restaurantDetails.name} </RestaurantName>
                 <FoodType> {restaurantDetails.category} </FoodType>
-                <DeliveryStatus> {restaurantDetails.deliveryTime} min - Frete R${restaurantDetails.shipping},00 </DeliveryStatus>
+                <DeliveryStatus> {restaurantDetails.deliveryTime} min - Frete R${restaurantDetails.shipping?.toFixed(2)}</DeliveryStatus>
                 <RestaurantAdress> {restaurantDetails.address} </RestaurantAdress>
             </RestaurantDetailContainer>
 

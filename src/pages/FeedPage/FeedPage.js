@@ -9,13 +9,12 @@ import { ContainerFeedPage,FeedPageHeader,Icons,Texto,SubHeaderFeed, Mainmenu } 
 import axios from 'axios'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import SimpleBottomNavigation from '../../components/barraInferior/bottomBar'
-
-import FeedCard from "../../components/FeedCard/FeedCard"; /*** teste useParams ***/
+import FeedCard from "../../components/FeedCard/FeedCard";
 
 
 const FeedPage = () => {
 
-    const [restaurantName, setRestaurantName] = useState("") /*** teste useParams ***/
+    const [restaurants, setRestaurants] = useState([])
 
     useProtectedPage()
     useEffect(() => {
@@ -28,19 +27,15 @@ const FeedPage = () => {
     
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants`, headers)
         .then((res) => {
-            console.log(res.data)
-            setRestaurantName(res.data) /*** teste useParams ***/
+            setRestaurants(res.data.restaurants)
         })
 
     }, [])
 
-    /*** teste useParams ***/
 
-    const nameList = restaurantName.restaurants?.map((detail) => {
-        return <FeedCard name={detail} id={detail}/>
+    const restaurantsList = restaurants?.map((detail) => {
+        return <FeedCard restaurant={detail}/>
     })
-
-    /*** teste useParams ***/
 
 
     return (
@@ -74,7 +69,7 @@ const FeedPage = () => {
                 </div>
             </Mainmenu>
 
-            <div>{nameList}</div> {/* /*** teste useParams ***/}
+            <div>{restaurantsList}</div>
 
             <SimpleBottomNavigation /> 
         </ContainerFeedPage>
