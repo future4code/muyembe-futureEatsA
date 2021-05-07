@@ -1,7 +1,7 @@
 
 import React, { useState, useContext } from "react";
 import GlobalStateContext from "../../globalState/globalStateContext";
-import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, AddButton} from "./styles";
+import {RestaurantProductContainer, ProductCategory, ProductContainer, ProductImg, ProductName, ProductDescription, ProductPrice, RemoveButton, AddButton} from "./styles";
 
 
 
@@ -35,7 +35,7 @@ const RestaurantProductCard = (props) => {
         })
         
         if(checkingCart) {
-            return <AddButton onClick={()=> removeFromCart(id)}>Remover</AddButton>
+            return <RemoveButton onClick={()=> removeFromCart(id)}>Remover</RemoveButton>
         } else {
             return <AddButton onClick={()=> addToCart(id)}>Adicionar</AddButton>
         }

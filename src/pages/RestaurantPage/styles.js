@@ -5,18 +5,16 @@ export const RestaurantHeader = styled.div`
     height: 64px;
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     border-bottom: 1px solid #b8b8b8;
 `
 
-export const GoBackButton = styled.button`
-    width: 23px;
-    height: 24px;
-    background-color: white;
+export const GoBackButton = styled.img`
+    width: 16px;
+    height: 16px;
     color: black;
-    border: none;
-    margin-bottom: 10px;
+    margin: 0 112px 12px 16px;
 `
 
 export const HeaderTitle = styled.h2`
