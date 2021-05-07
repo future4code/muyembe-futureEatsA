@@ -83,12 +83,24 @@ export const ProductPrice = styled.h3`
     margin: 0px 0px 15px 16px;
 `
 
+export const RemoveButton = styled.button`
+    width: 90px;
+    height: 31px;
+    color: #e02020;
+    border: solid 1px #e02020;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    grid-column: 3/4;
+    margin: 2px 0px 0px 63px;
+`
+
 export const AddButton = styled.button`
     width: 90px;
     height: 31px;
+    color: #5cb646;
     border: solid 1px #5cb646;
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
     grid-column: 3/4;
-    margin: 4px 0px 0px 64px;
+    margin: 2px 0px 0px 63px;
 `

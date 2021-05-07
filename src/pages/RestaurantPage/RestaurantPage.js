@@ -5,6 +5,7 @@ import {RestaurantHeader, GoBackButton, HeaderTitle} from "./styles";
 import {RestaurantDetailContainer, LogoImg, RestaurantName, DeliveryStatus, FoodType, RestaurantAdress} from "./styles";
 import RestaurantProductCard from "../../components/RestaurantProductCard/RestaurantProductCard";
 import {previousPage} from "../../Routes/coordinator";
+import backButton from "../../assets/back.png";
 
 const RestaurantPage = () => {
 
@@ -39,7 +40,7 @@ const RestaurantPage = () => {
         <div className="Restaurant-page-container">
 
             <RestaurantHeader>
-                <GoBackButton onClick={()=> previousPage(history)}> ≤ </GoBackButton>
+                <GoBackButton onClick={()=> previousPage(history)} src={backButton} alt="Voltar para página anterior" />
                 <HeaderTitle>Restaurante</HeaderTitle>
             </RestaurantHeader>
 

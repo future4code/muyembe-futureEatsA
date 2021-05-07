@@ -11,7 +11,7 @@ export const RestaurantContainer = styled.div`
 `
 
 export const Img = styled.img`
-    width: 328px;
+    width: 326px;
     height: 120px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
