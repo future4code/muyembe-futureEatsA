@@ -37,9 +37,18 @@ export const Mainmenu = styled.div `
             justify-content:space-evenly;
             flex-wrap:wrap;
             list-style-type: none;
-        li {
-                margin: 0px 15px 0px 0px; 
-        }
-/*             padding: 10px; */
         }  
+        li {
+            margin: 0px 15px 12px 0px; 
+        }
+`
+
+export const ContainerList = styled.div`
+      width: 100%;
+      display:flex;
+      justify-content: center;
+`
+
+export const RestaurantList = styled.div`
+
 `

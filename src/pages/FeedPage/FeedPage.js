@@ -5,7 +5,7 @@ import fullBattery from '../../assets/full-battery.png'
 import signal from '../../assets/signal.png'
 import wifi from '../../assets/wifi.png'
 import Divider from '@material-ui/core/Divider'
-import { ContainerFeedPage,FeedPageHeader,Icons,Texto,SubHeaderFeed, Mainmenu } from './styles'
+import { ContainerFeedPage,FeedPageHeader,Icons,Texto,SubHeaderFeed, Mainmenu, RestaurantList, ContainerList } from './styles'
 import axios from 'axios'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import SimpleBottomNavigation from '../../components/barraInferior/bottomBar'
@@ -69,7 +69,9 @@ const FeedPage = () => {
                 </div>
             </Mainmenu>
 
-            <div>{restaurantsList}</div>
+            <ContainerList>
+                <RestaurantList>{restaurantsList}</RestaurantList>
+            </ContainerList>
 
             <SimpleBottomNavigation /> 
         </ContainerFeedPage>
