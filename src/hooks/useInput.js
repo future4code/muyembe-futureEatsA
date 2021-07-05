@@ -8,9 +8,9 @@ export const useInput = (initialValues) => {
     setInputText({ ...inputText, [name]: value });
   };
 
-  const clearInput = () => {
-    setInputText(initialValues)
-  }
+  // const clearInput = () => {
+  //   setInputText(initialValues)
+  // }
   
-  return { inputText, onChange, clearInput};
+  return { inputText, onChange};
 }; 

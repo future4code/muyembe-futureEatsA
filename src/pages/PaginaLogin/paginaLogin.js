@@ -24,15 +24,9 @@ const PaginaLogin = () => {
       email: inputText.email,
       password: inputText.password,
     };
-
-   requests.login(body)
-
-   if(requests !== ''){
-       home(history)
-   }
-
+    requests.login(body);
+    home(history);
   };
-
 
   return (
     <DivPrincipal>

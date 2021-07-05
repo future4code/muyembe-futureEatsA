@@ -72,6 +72,7 @@ export default function InputLogin(props) {
           variant="contained"
           color="secondary"
           className={classes.margin}
+          
         >
           Entrar
         </Button>
