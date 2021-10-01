@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { gray, green } from "../../constants/colors";
-import Button from '@material-ui/core/Button'
+import Button from "@material-ui/core/Button";
 
 export const CartHeader = styled.header`
   display: flex;
@@ -75,45 +75,37 @@ export const SubTotal = styled.div`
 `;
 
 export const PaymentChoice = styled.div`
-    font-size: 1.2rem;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  font-size: 1.2rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Choices = styled.label`
-    margin-left: 0.9rem;
-`
+  margin-left: 0.9rem;
+`;
 
 export const ChoicesContainer = styled.div`
-    padding: 0.5rem;
-`
+  padding: 0.5rem;
+`;
 
 export const ConfirmButton = styled(Button)`
-    width: 80vw;
-    background-color: ${green};
+  width: 80vw;
+  background-color: ${green};
 
-    &&{
-      margin-bottom: 1rem;
-    } 
-    
-
-`
+  && {
+    margin-bottom: 1rem;
+  }
+`;
 
 export const Container = styled.div`
- display: flex;
- width: 100%;
- justify-content: center;
-`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
 
-export const Street = styled.span`
+export const Street = styled.span``;
 
-`
+export const Number = styled.span``;
 
-export const Number = styled.span`
-
-`
-
-export const Neighbourhood = styled.span`
-
-`
+export const Neighbourhood = styled.span``;

@@ -1,44 +1,43 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React from "react";
-import SimpleBottomNavigation from '../components/barraInferior/bottomBar'
+import SimpleBottomNavigation from "../components/barraInferior/bottomBar";
 import SearchPage from "../pages/SearchPage/SearchPage";
-import Register from "../pages/Register/Register"
-import Address from '../pages/Register/Address'
+import Register from "../pages/Register/Register";
+import Address from "../pages/Register/Address";
 import PaginaLogin from "../pages/PaginaLogin/paginaLogin";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
-import PerfilPage from '../pages/PerfilPage/PerfilPage'
+import PerfilPage from "../pages/PerfilPage/PerfilPage";
 import Cart from "../pages/CartPage/Cart";
-import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
-import EditUserPage from '../pages/EditUserPage/EditUserPage'
-import FeedPage from '../pages/FeedPage/FeedPage'
+import EditAddressPage from "../pages/EditAddressPage/EditAddressPage";
+import EditUserPage from "../pages/EditUserPage/EditUserPage";
+import FeedPage from "../pages/FeedPage/FeedPage";
 
 const Router = () => {
-
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-        <FeedPage/>
-        <SimpleBottomNavigation />
+          <FeedPage />
+          <SimpleBottomNavigation />
         </Route>
-        <Route exact path="/login">          
-          <PaginaLogin/>
+        <Route exact path="/login">
+          <PaginaLogin />
         </Route>
         <Route exact path="/cadastro">
-          <Register/>
+          <Register />
         </Route>
         <Route exact path="/endereco">
-          <Address/>
+          <Address />
         </Route>
         <Route exact path="/home">
           {/* <App /> */}
         </Route>
         <Route exact path="/carrinho">
-         <Cart/>
-         <SimpleBottomNavigation />
+          <Cart />
+          <SimpleBottomNavigation />
         </Route>
         <Route exact path="/busca">
-          <SearchPage/>          
+          <SearchPage />
         </Route>
         <Route exact path="/restaurante/:id">
           <RestaurantPage />
@@ -46,15 +45,15 @@ const Router = () => {
         </Route>
 
         <Route exact path="/perfil">
-          <PerfilPage/>
-          <SimpleBottomNavigation /> 
-        </Route> 
+          <PerfilPage />
+          <SimpleBottomNavigation />
+        </Route>
         <Route exact path="/perfil/editar/endereco">
-          <EditAddressPage/>         
-        </Route>    
+          <EditAddressPage />
+        </Route>
         <Route exact path="/perfil/editar/usuario">
-          <EditUserPage/>         
-        </Route>                  
+          <EditUserPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

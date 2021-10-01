@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { useInput } from '../../hooks/useInput'
-import axios from 'axios'
-import { login, address } from '../../Routes/coordinator'
-import { useHistory } from 'react-router'
+import React, { useState } from "react";
+import { useInput } from "../../hooks/useInput";
+import axios from "axios";
+import { login, address } from "../../Routes/coordinator";
+import { useHistory } from "react-router";
 import {
   InputLabel,
   IconButton,
@@ -11,94 +11,96 @@ import {
   FormControl,
   TextField,
   Button,
-} from '@material-ui/core'
-import { Visibility, VisibilityOff } from '@material-ui/icons'
-import Logo from '../../assets/brandLogo.png'
+} from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
+import Logo from "../../assets/brandLogo.png";
 import {
   Title,
   ContainerForm,
   Container,
   ImageLogo,
   MessageRegister,
-} from './styles'
+} from "./styles";
 
 function Register() {
-  const history = useHistory()
+  const history = useHistory();
 
   // hook de formulário
   const { inputText, onChange, clearInput } = useInput({
-    name: '',
-    email: '',
-    cpf: '',
-    password: '',
-    confirmPassword: '',
-  })
+    name: "",
+    email: "",
+    cpf: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   // Paginação, a página do cadastro só é acessível por meio do form de endereço preenchido
   // const [changePage, setChangePage] = useState(false)
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState("");
 
   //visibilidade das senhas
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const clickShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
+    setShowPassword(!showPassword);
+  };
   const clickShowConfirmPassword = () => {
-    setShowConfirmPassword(!showConfirmPassword)
-  }
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   // Validação das senhas
   const validation = (event) => {
-    const password = inputText.password
-    const confirmationPassword = inputText.confirmPassword
-    event.preventDefault()
+    const password = inputText.password;
+    const confirmationPassword = inputText.confirmPassword;
+    event.preventDefault();
 
     if (
-      inputText !== '' &&
-      inputText.email !== '' &&
-      inputText.cpf !== '' &&
+      inputText !== "" &&
+      inputText.email !== "" &&
+      inputText.cpf !== "" &&
       password === confirmationPassword &&
       password.length >= 6
     ) {
       axios
         .post(
-          'https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/signup',
-          inputText,
+          "https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/signup",
+          inputText
         )
         .then((answer) => {
-          window.localStorage.setItem('Token', answer.data.token)
-          alert('Cadastro feito com sucesso')
+          window.localStorage.setItem("Token", answer.data.token);
+          alert("Cadastro feito com sucesso");
           setMessage(
             <MessageRegister>
-              
               <p>🎉Cadastrado com sucesso! </p>
-               <p>Vamos cadastrar seu endereço?
+              <p>
+                Vamos cadastrar seu endereço?
                 <strong onClick={() => address(history)}>aqui</strong>
               </p>
-            </MessageRegister>,
-          )
+            </MessageRegister>
+          );
         })
         .catch(() => {
-          alert('Usuário já consta como cadastrado')
+          alert("Usuário já consta como cadastrado");
           setMessage(
             <MessageRegister>
               <p>Usuário já cadastrado</p>
-              <p>Tente login <strong onClick={() => login(history)}>aqui</strong></p>
+              <p>
+                Tente login <strong onClick={() => login(history)}>aqui</strong>
+              </p>
             </MessageRegister>
-          )
-          clearInput()
-        })
+          );
+          clearInput();
+        });
     } else {
-      alert('Por favor, confira sua senha')
-      clearInput()
+      alert("Por favor, confira sua senha");
+      clearInput();
     }
-  }
+  };
 
   return (
     <>
       <Container>
-        <ImageLogo src={Logo} alt={'labe-food logo'} />
+        <ImageLogo src={Logo} alt={"labe-food logo"} />
 
         <ContainerForm onSubmit={validation}>
           <Title>Cadastrar</Title>
@@ -114,7 +116,7 @@ function Register() {
             placeholder="Nome e sobrenome"
             onChange={onChange}
             required
-            style={{ margin: '0.5rem 0', width: '18rem' }}
+            style={{ margin: "0.5rem 0", width: "18rem" }}
           />
 
           <TextField
@@ -128,7 +130,7 @@ function Register() {
             placeholder="email@email.com"
             onChange={onChange}
             required
-            style={{ margin: '0.5rem 0' }}
+            style={{ margin: "0.5rem 0" }}
           />
 
           <TextField
@@ -142,14 +144,14 @@ function Register() {
             pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
             onChange={onChange}
             required
-            style={{ margin: '0.5rem 0' }}
+            style={{ margin: "0.5rem 0" }}
           />
 
           <FormControl
             color="secondary"
             variant="outlined"
             required="true"
-            style={{ margin: '0.5rem 0' }}
+            style={{ margin: "0.5rem 0" }}
           >
             <InputLabel htmlFor="outlined-adornment-password" margin="dense">
               Senha
@@ -159,7 +161,7 @@ function Register() {
               margin="dense"
               label="Senha"
               value={inputText.password}
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Mínimo 6 caracteres"
               onChange={onChange}
@@ -177,7 +179,7 @@ function Register() {
             color="secondary"
             variant="outlined"
             required="true"
-            style={{ margin: '0.5rem 0' }}
+            style={{ margin: "0.5rem 0" }}
           >
             <InputLabel htmlFor="outlined-adornment-password" margin="dense">
               Confirmar
@@ -187,7 +189,7 @@ function Register() {
               margin="dense"
               label="Confirmar"
               value={inputText.confirmPassword}
-              type={showConfirmPassword ? 'text' : 'password'}
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Confirme a senha anterior"
               onChange={onChange}
@@ -208,7 +210,7 @@ function Register() {
         {message}
       </Container>
     </>
-  )
+  );
 }
 
-export default Register
+export default Register;

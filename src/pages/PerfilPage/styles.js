@@ -1,5 +1,5 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const ContainerPerfilPage = styled.div`
-       font-weight:normal;
-`
+  font-weight: normal;
+`;
